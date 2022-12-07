@@ -119,4 +119,9 @@ private DBContext dbContext;
         }
         return billAnalysis;
     }
+
+    @Override
+    public List<Product> searchInShop(String search) {
+        return dbContext.productRepo.searchProductTop5(search);
+    }
 }
