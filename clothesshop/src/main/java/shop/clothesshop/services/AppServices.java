@@ -20,7 +20,8 @@ import java.util.Optional;
 @Service
 public class AppServices implements IAppServices {
     @Autowired
-private DBContext dbContext;
+    private DBContext dbContext;
+
     @Override
     public AccountCustom checkLogin(String userName, String userPass) {
         Accounts account = dbContext.accountRepo.checkLogin(userName, userPass);
@@ -79,16 +80,47 @@ private DBContext dbContext;
 
     @Override
     public AccountShipContact addNewAccountShipContact(AccountShipContact accountShipContact) {
-        return null;
+        accountShipContact.setAccountShipContactStatusId(1);
+        dbContext.accountShipContactRepo.save(accountShipContact);
+        return accountShipContact;
     }
 
     @Override
     public RemakeAccountRequest remakeAcountInfo(RemakeAccountRequest accountRemake) {
-        return null;
+        Optional<Accounts> accountsOptional = dbContext.accountRepo.findById(accountRemake.getAccountId());
+        if (accountsOptional.isEmpty()) {
+            return null;
+        }
+        Accounts account = accountsOptional.get();
+        account.setAccountDetailAddress(accountRemake.getAddress());
+        account.setName(accountRemake.getName());
+        account.setAccountBorn(accountRemake.getBorn());
+        account.setUpdateDate(LocalDate.now());
+        account.setSdt(accountRemake.getSdt());
+        dbContext.accountRepo.save(account);
+        return accountRemake;
     }
+
 
     @Override
     public RePassRespon rePass(RePass rePassData) {
-        return null;
+        RePassRespon rpr = new RePassRespon();
+        Optional<Accounts> accountsOptional = dbContext.accountRepo.findById(rePassData.getAccountId());
+        if (accountsOptional.isEmpty()) {
+            rpr.setStatus(1);
+            rpr.setDetail("Tài khoản không tồn tại!");
+            return rpr;
+        }
+        Accounts account = accountsOptional.get();
+        if (!account.getAccountPassword().equals(rePassData.getOldPass())) {
+            rpr.setStatus(2);
+            rpr.setDetail("Mật khẩu hiện tại không chính xác!");
+            return rpr;
+        }
+        account.setAccountPassword(rePassData.getNewPass());
+        rpr.setStatus(3);
+        rpr.setDetail("Đổi mật khẩu thành công!");
+        return rpr;
     }
+
 }
