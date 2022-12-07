@@ -2,10 +2,7 @@ package shop.clothesshop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import shop.clothesshop.entities.AccountShipContact;
-import shop.clothesshop.entities.AccountStatus;
-import shop.clothesshop.entities.Accounts;
-import shop.clothesshop.entities.Role;
+import shop.clothesshop.entities.*;
 import shop.clothesshop.entities.requestobject.CreateAccountData;
 import shop.clothesshop.entities.requestobject.RePass;
 import shop.clothesshop.entities.requestobject.RemakeAccountRequest;
@@ -15,6 +12,7 @@ import shop.clothesshop.repository.context.DBContext;
 import shop.clothesshop.services.iservices.IAppServices;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -123,4 +121,37 @@ public class AppServices implements IAppServices {
         return rpr;
     }
 
+    @Override
+    public List<Product> getProductHome() {
+        List<Product> fullList = dbContext.productRepo.findAll();
+        return fullList.subList(0,9);
+    }
+    @Override
+    public List<Product> nextPage(int page) {
+        List<Product> getAll = dbContext.productRepo.findAll();
+        if(page*9+9>=getAll.size()){
+            return getAll.subList(getAll.size()-10,getAll.size()-1);
+        }
+        return getAll.subList(page*9-9,page*9);
+    }
+
+    @Override
+    public List<Product> dressCategory() {
+        return dbContext.productRepo.dressCategory();
+    }
+
+    @Override
+    public List<Product> panCategory() {
+        return dbContext.productRepo.panCategory();
+    }
+
+    @Override
+    public List<Product> shirtCategory() {
+        return dbContext.productRepo.shirtCategory();
+    }
+
+    @Override
+    public List<Product> searchProduct(String searchInput) {
+        return dbContext.productRepo.searchProduct(searchInput);
+    }
 }
