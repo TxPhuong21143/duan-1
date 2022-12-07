@@ -1,7 +1,9 @@
 package shop.clothesshop.services.iservices;
 
 import shop.clothesshop.entities.AccountShipContact;
+import shop.clothesshop.entities.Bill;
 import shop.clothesshop.entities.requestobject.CreateAccountData;
+import shop.clothesshop.entities.requestobject.OrderData;
 import shop.clothesshop.entities.requestobject.RePass;
 import shop.clothesshop.entities.requestobject.RemakeAccountRequest;
 import shop.clothesshop.entities.responobject.AccountCustom;
@@ -21,4 +23,6 @@ public interface IAppServices {
     public RemakeAccountRequest remakeAcountInfo(RemakeAccountRequest accountRemake);
 
     public RePassRespon rePass(RePass rePassData);
+    public Bill cancelBill(Integer billId, Integer type);
+    public OrderData createBill(OrderData orderData);
 }
