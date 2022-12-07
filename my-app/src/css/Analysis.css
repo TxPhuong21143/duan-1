@@ -1,0 +1,237 @@
+.xy-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.margin-right1 {
+    margin-right: 1%;
+}
+
+.bottom-plus {
+    height: 10px;
+}
+
+.admin-analysis-title {
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.quick-analysis {
+    margin-top: 2%;
+    display: inline-block;
+    width: 100%;
+
+}
+
+.quick-analysis-item {
+    width: 24.25%;
+    height: 140px;
+    background-color: rgb(53, 64, 73);
+    float: left;
+    border-radius: 5px;
+}
+
+.analysis-tem-content-right {
+    width: 60%;
+    float: left;
+    color: rgb(175, 246, 246);
+    height: 100%;
+    display: block;
+}
+
+.analysis-tem-content-left {
+    width: 40%;
+    height: 100%;
+    float: left;
+}
+
+.analysis-icon1 {
+    font-size: 100px;
+    color: rgb(175, 246, 246);
+}
+
+.analysis-icon2 {
+    font-size: 100px;
+    color: rgb(194, 157, 247);
+}
+
+.analysis-detail-text1 {
+    display: block;
+    width: 100%;
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.analysis-detail-text2 {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    color: #9097A7;
+}
+
+.fix-magrin-bottom {
+    height: 20px;
+}
+
+.analysis-top-container {
+    width: 100%;
+}
+
+.analysis-top-item {
+    width: 49.5%;
+    background-color: rgb(52, 64, 72);
+    float: left;
+}
+
+.analysis-top-item-title {
+    margin-left: 6%;
+    margin-top: 4%;
+    color: #9097A7;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.analysis-top-item-header-row {
+    height: 40px;
+    margin-top: 4%;
+    width: 92%;
+    margin-left: 4%;
+    background-color: rgb(61, 73, 83);
+}
+
+.analysis-top-product {
+    color: aliceblue;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.colum-code {
+    width: 10%;
+    float: left;
+}
+
+.colum-name {
+    width: 60%;
+    float: left;
+}
+
+.colum-count {
+    width: 15%;
+    float: left;
+}
+
+.colum-inventory {
+    width: 15%;
+    float: left;
+}
+
+.colum-name-kh {
+    width: 40%;
+    float: left;
+}
+
+.colum-sdt {
+    width: 25%;
+    float: left;
+}
+
+.colum-totalbill {
+    width: 25%;
+    float: left;
+}
+
+.analysis-top-product-item-row {
+    margin-top: 12px;
+    margin-left: 4%;
+    width: 92%;
+    height: 40px;
+}
+.fix-heightTop{
+    margin-top: 12px;
+    margin-left: 4%;
+    width: 92%;
+    height: 240px;
+}
+
+.analysis-profit-detail-by-month {
+    width: 100%;
+    background-color: rgb(52, 64, 72);
+    display: inline-block;
+}
+
+.analysis-profit-detail-by-month-header-row {
+    height: 40px;
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 12px;
+    background-color: rgb(61, 73, 83);
+}
+
+.analysis-profit-row {
+    height: 40px;
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 12px;
+}
+
+.colum-month {
+    width: 10%;
+    height: 40px;
+    float: left;
+}
+
+.colum-bill-shipped {
+    width: 10%;
+    height: 40px;
+    float: left;
+}
+
+.colum-product-quantity {
+    width: 10%;
+    height: 40px;
+    float: left;
+}
+
+.colum-shipped-profit {
+    width: 20%;
+    height: 40px;
+    float: left;
+}
+
+.colum-bill-back-loss-ship {
+    width: 10%;
+    height: 40px;
+    float: left;
+}
+
+.colum-back-loss-ship-total {
+    width: 20%;
+    height: 40px;
+    float: left;
+}
+
+.colum-profit {
+    width: 20%;
+    height: 40px;
+    float: left;
+}
+.colum-analysis-style{
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.column-analysis-profit-detail{
+    color: #9097A7;
+    font-size: 15px;
+    font-weight: 500;
+}

@@ -1,0 +1,96 @@
+.search-product-admin {
+    height: 24px;
+    width: 97%;
+    border: 1px solid gray;
+    margin-top: 4px;
+    margin-left: 4px;
+    background-color: rgb(220, 219, 219);
+
+}
+
+.half-inshop {
+    width: 49%;
+    float: left;
+    height: 500px;
+}
+
+.half-inshop1 {
+    width: 49%;
+    height: 1000px;
+    float: left;
+}
+
+.margin-admin-inshop {
+    margin-right: 1%;
+}
+
+.search-item-contaier {
+    width: 98%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.img-search {
+    height: 100px;
+    width: 80px;
+    margin-right: 4px;
+}
+
+.fix-margintop8px {
+    margin-top: 4px;
+}
+
+.detail-product-search {
+    width: 70%;
+    height: 100px;
+}
+
+.price-search {
+    color: aliceblue;
+    font-weight: 600;
+}
+
+.quantity-search {
+    color: red;
+    font-weight: 500P;
+}
+
+.search-item-contaier:hover {
+    cursor: pointer;
+    background-color: rgb(150, 152, 152);
+}
+
+.btn-create-bill-holding {
+    width: 120px;
+    height: 30px;
+    background-color: red;
+    position: absolute;
+    border-radius: 5px;
+    top: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.btn-create-bill-holding:hover {
+    cursor: pointer;
+    background-color: rgb(245, 88, 88);
+}
+
+.input-customname {
+    height: 24px;
+    width: 95%;
+    margin-top: 8px;
+    margin-left: 8px;
+    background-color: rgb(195, 193, 193);
+    border-radius: 5px;
+    border: none;
+}
+
+.fix-heightselect {
+    height: 24px !important;
+    width: 120px;
+    margin-left: 14px;
+}

@@ -1,0 +1,307 @@
+.float-left {
+    float: left;
+}
+
+.header {
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid rgb(228, 220, 189);
+    z-index: 1;
+    background-color: rgb(246, 243, 229);
+}
+
+.app-header {
+    display: block;
+    height: 100px;
+    width: 88%;
+    padding-left: 6%;
+    /* background-color: red; */
+}
+
+#logo-header {
+    height: 60%;
+    width: 80%;
+    position: absolute;
+    top: 20%;
+}
+
+.hoverNav:hover {
+    border-bottom: 4px solid black;
+    border-radius: 4px;
+}
+
+.app-header-left {
+    width: 20%;
+    height: 100%;
+    position: relative;
+}
+
+.app-header-right {
+    width: 80%;
+    height: 100%;
+}
+
+.web-option {
+    display: block;
+    height: 29%;
+    position: relative;
+    margin-top: 1%;
+}
+
+.header-webOpt {
+    position: absolute;
+    right: 0%;
+    height: 100%;
+}
+
+.loGin-after::after {
+    content: "";
+    display: inline-block;
+    background-color: rgb(228, 220, 189);
+    height: 12px;
+    width: 1px;
+    margin-left: 24px;
+}
+
+.afterRight-1px::after {
+    content: "";
+    display: inline-block;
+    padding-right: 4px;
+}
+
+.header-goForm {
+    display: inline-block;
+    padding: 0 12px;
+    text-transform: uppercase;
+    color: rgb(107, 108, 109);
+}
+
+.navigator-header {
+    height: 70%;
+    width: 100%;
+    display: inline-block;
+    padding-left: 6%;
+    position: relative;
+    margin-top: -1%;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    float: left;
+    text-decoration: none;
+    color: black;
+    height: 100%;
+    padding: 0 16px 0 16px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.hoverCommon:hover {
+    cursor: pointer;
+    color: black;
+}
+
+.header-fb {
+    color: black;
+}
+
+.account-navs {
+    position: absolute;
+    display: none;
+    top: 18px;
+    width: 150px;
+    height: 90;
+    color: black;
+    background-color: rgba(173, 168, 168, 0.9);
+    left: 12px;
+    z-index: 5;
+}
+
+.account-nav {
+    display: flex;
+    align-items: center;
+    color: rgb(6, 5, 5);
+    height: 30px;
+    padding-left: 4px;
+    text-decoration: none;
+}
+
+.account-accsessed {
+    color: #000;
+    width: 150px;
+}
+
+.account-accsessed:hover {}
+
+.bag:hover {
+    cursor: pointer;
+    background-color: #000;
+    color: white;
+}
+
+.order:hover {
+    cursor: pointer;
+    background-color: #000;
+    color: white;
+}
+
+.account:hover {
+    cursor: pointer;
+    background-color: #000;
+    color: white;
+}
+
+.logout:hover {
+    cursor: pointer;
+    background-color: #000;
+    color: white;
+}
+
+.active {
+    display: block !important;
+}
+
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    width: 50%;
+}
+
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+
+
+input.question,
+textarea.question {
+    font-size: 24px;
+    font-weight: 100;
+    border-radius: 2px;
+    margin: 0;
+    border: none;
+    width: 60%;
+    color: rgb(93, 92, 92);
+    background: rgba(0, 0, 0, 0);
+    transition: padding-top 0.2s ease, margin-top 0.2s ease;
+    overflow-x: hidden;
+    /* Hack to make "rows" attribute apply in Firefox. */
+}
+
+/* Underline and Placeholder */
+.input-search {
+    margin-top: 3%;
+    margin-left: 10%;
+    position: relative;
+}
+
+input.question+label,
+textarea.question+label {
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    width: 10%;
+    border-top: 1px solid rgb(234, 231, 231);
+    -webkit-transition: width 0.4s ease;
+    transition: width 0.4s ease;
+    height: 0px;
+
+}
+
+input.question:focus+label,
+textarea.question:focus+label {
+    width: 60%;
+}
+
+
+textarea.question:valid,
+textarea.question:focus {
+    margin-top: 35px;
+}
+
+input.question:focus+label>span,
+input.question:valid+label>span {
+    top: -60px;
+    font-size: 20px;
+    color: #333;
+}
+
+
+input.question:valid+label,
+textarea.question:valid+label {
+    border-color: green;
+}
+
+input.question:invalid,
+textarea.question:invalid {
+    box-shadow: none;
+}
+
+input.question+label>span,
+textarea.question+label>span {
+    font-weight: 300;
+    margin: 0;
+    position: absolute;
+    color: #8F8F8F;
+    font-size: 20px;
+    top: -33px;
+    left: 0px;
+    z-index: -1;
+    -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+.search-icon {
+    position: absolute;
+    left: 64%;
+    top: 48%;
+    font-size: 24px;
+}
+
+.search-icon:hover {
+    cursor: pointer;
+    font-size: 26px;
+    color: #8F8F8F;
+}
+
+.bag-home {
+    position: absolute;
+    top: 30%;
+    left: 76%;
+    font-size: 36px;
+    color: #020202;
+}
+.bag-home:hover{
+    cursor: pointer;
+    color: #8F8F8F;
+}
+.total-bag{
+    display: inline-block;
+    position: absolute;
+    top: 25%;
+    left: 78%;
+    background-color: #f1efef;
+    border-radius: 10px;
+    color: rgb(242, 127, 127);
+    font-size: 16px;
+    font-weight: 600;
+}
+.total-bag:hover{
+    cursor: pointer;
+}

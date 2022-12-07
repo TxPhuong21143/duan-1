@@ -1,0 +1,764 @@
+.fix-header {
+    height: 100px;
+}
+
+.create-order-container {
+    margin-left: 6%;
+    width: 88%;
+    display: inline-block;
+    margin-top: 16px;
+}
+
+.icon-fixmargin {
+    margin-top: 24px;
+}
+
+.location-detail {
+    color: rgb(246, 110, 65);
+    font-size: 24px;
+    border-top: 2px dashed rgb(233, 159, 94);
+    border-bottom: 1px solid rgb(234, 231, 231);
+    border-left: 1px solid rgb(234, 231, 231);
+    border-right: 1px solid rgb(234, 231, 231);
+    text-transform: capitalize;
+}
+
+.name-sdt {
+    color: black;
+    font-size: 18px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.contact-container {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 24px;
+}
+
+.contact-detail-create {
+    color: black;
+    margin-left: 8px;
+    font-size: 18px;
+    font-weight: unset;
+}
+
+.list-container {
+    width: 100%;
+    margin-top: 1%;
+    display: inline-block;
+}
+
+.table-title-row {
+    width: 100%;
+    display: block;
+    border: 1px solid rgb(234, 231, 231);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sanpham {
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    width: 60%;
+    float: left;
+}
+
+.fix-margin-sanpham {
+    margin-left: 4%;
+}
+
+.dongia {
+    color: rgb(203, 196, 196);
+    width: 10%;
+    float: left;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+.soluong {
+    color: rgb(203, 196, 196);
+    width: 10%;
+    float: left;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+.thanhtien {
+    color: rgb(203, 196, 196);
+    font-size: 18px;
+    text-transform: capitalize;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    float: left;
+}
+
+.item-container {
+    height: 160px;
+    border: 1px solid rgb(226, 223, 223);
+    margin-top: 4px;
+}
+
+.category-location {
+    height: 40px;
+    border-bottom: 1px solid rgb(226, 223, 223);
+    width: 98%;
+    margin-left: 1%;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.order-detail {
+    width: 100%;
+    display: flex;
+    height: 120px;
+    align-items: center;
+}
+
+.product-detail {
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
+
+.product-img {
+    height: 100px;
+    width: 70px;
+}
+
+.product-name {
+    font-size: 14px;
+}
+
+.row-item {
+    color: black;
+    font-size: 14px;
+    display: flex;
+    text-transform: unset;
+}
+
+.fix-alittlebit {
+    margin-left: 24px;
+}
+
+.confirm-container {
+    border: 1px solid rgb(226, 223, 223);
+    margin-top: 24px;
+}
+
+.ship-method-container {
+    height: 180px;
+    border: 1px solid rgb(226, 223, 223);
+    margin-top: 8px;
+}
+
+.order-mes {
+    width: 40%;
+    height: 120px;
+    border-right: 2px dotted rgb(226, 223, 223);
+    border-bottom: 2px dotted rgb(226, 223, 223);
+    display: flex;
+    justify-content: center;
+    float: left;
+    align-items: center;
+}
+
+.order-mes-title {
+    font-size: 20px;
+    color: rgb(191, 193, 195);
+}
+
+.order-mes-input {
+    width: 60%;
+    margin-left: 4%;
+    height: 30px;
+    font-size: 20px;
+    border: 1px solid rgb(226, 223, 223);
+
+}
+
+.ship-detail {
+    width: 59.7%;
+    float: left;
+    border-bottom: 2px dotted rgb(226, 223, 223);
+    height: 120px;
+}
+
+.column-fix-4 {
+    width: 25%;
+    float: left;
+}
+
+.ship-title {
+    color: rgb(46, 180, 46);
+    font-size: 16px;
+
+}
+
+.inline-marginleft12px {
+    margin-top: 20px;
+    display: inline-block;
+    margin-left: 12px;
+}
+
+.add-left12px {
+    margin-left: 36px;
+}
+
+.total-price-container {
+    width: 100%;
+    display: inline-block;
+}
+
+.total-price {
+    margin-left: 70%;
+    width: 30%;
+    height: 60px;
+    margin-top: 1%;
+}
+
+.notification-aftership {
+    color: rgb(202, 204, 205);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.price-after-ship {
+    font-size: 20px;
+    margin-left: 8px;
+    display: inline-block;
+    font-weight: 400;
+    color: red;
+}
+
+.change-ship {
+    color: rgb(66, 66, 211);
+}
+
+.change-ship:hover {
+    cursor: pointer;
+}
+
+.voucher-bill-container {
+    height: 100px;
+    border: 1px solid rgb(226, 223, 223);
+    margin-top: 8px;
+}
+
+.voucher-logo {
+    width: 30%;
+    float: left;
+    position: relative;
+}
+
+.icon-voucher {
+    display: inline-block;
+    margin-left: 10%;
+    margin-top: 9%;
+    font-size: 30px;
+    color: orange;
+}
+
+.voucher-title {
+    position: absolute;
+    top: 56%;
+    left: 20%;
+}
+
+.chose-opt {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    height: 100px;
+}
+
+.btn-chosse {
+    float: left;
+    width: 15%;
+    display: inline-block;
+    margin-top: 2.5%;
+    color: rgb(69, 69, 219);
+}
+
+.btn-chosse:hover {
+    cursor: pointer;
+}
+
+.buy-method-container {
+    height: 100px;
+    border-bottom: 1px solid rgb(226, 223, 223);
+}
+
+.buy-method-title {
+    width: 45%;
+    float: left;
+    font-size: 20px;
+}
+
+.buy-method-title-createorder {
+    margin-top: 5%;
+    margin-left: 4%;
+    display: inline-block;
+}
+
+.buy-method-opt-createorder {
+    width: 20%;
+    float: left;
+    font-size: 20px;
+}
+
+.buy-method-opt-createorder-detail {
+    font-size: 16px;
+    margin-top: 15%;
+    margin-left: 4%;
+    display: inline-block;
+}
+
+.btn-change-buy-method {
+    width: 20%;
+    float: left;
+}
+
+.btn-change-buy-method-btn {
+    color: rgb(77, 56, 212);
+    font-size: 16px;
+    margin-top: 15%;
+    margin-left: 30%;
+    display: inline-block;
+}
+
+.btn-change-buy-method-btn:hover {
+    cursor: pointer;
+}
+
+.confirm-show {
+    width: 25%;
+    margin-left: 75%;
+    margin-top: 24px;
+}
+
+.show-opt-confirm {
+    margin-top: 16px;
+}
+
+.price-result-createorder {
+    color: red;
+    font-size: 24px;
+}
+
+.fix-confirm-price {
+    margin-left: 15%;
+}
+
+.fix-confirm-priceresult {
+    margin-left: 10%;
+}
+
+.create-order-btn {
+    border-top: 1px solid rgb(226, 223, 223);
+    margin-top: 20px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.create-order-btn-div {
+    height: 50px;
+    width: 200px;
+    background-color: red;
+    color: white;
+    margin-left: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.create-order-btn-div:hover {
+    cursor: pointer;
+
+    background-color: rgb(232, 58, 58);
+}
+
+.full-device {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgb(5, 4, 4, 0.5);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ship-method-container-create-order {
+    height: 400px;
+    width: 44%;
+    background-color: white;
+    border: 1px solid rgba(196, 194, 194, 0.7);
+    border-radius: 2px;
+}
+
+.voucher-method-container-create-order {
+    width: 44%;
+    background-color: white;
+    border: 1px solid rgba(196, 194, 194, 0.7);
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.ship-method-create-order-container {
+    width: 90%;
+    margin-left: 5%;
+    height: 360px;
+    margin-top: 20px;
+}
+
+.voucher-method-create-order-container {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+}
+
+.create-order-ship-title-main {
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.create-order-ship-title-main2 {
+    color: rgb(164, 164, 164);
+    text-transform: uppercase;
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.create-order-ship-title-main3 {
+    color: rgb(164, 164, 164);
+    display: block;
+    font-size: 14px;
+    margin-bottom: 14px;
+}
+
+.ship-create-order-opt {
+    height: 200px;
+}
+
+.ship-create-order {
+    height: 95px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+
+}
+
+.ship-create-order-content {
+    margin-left: 12px;
+}
+
+.ship-opt-name {
+    display: block;
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.ship-opt-receive-date {
+    display: block;
+    color: rgb(140, 140, 140);
+    font-size: 12px;
+}
+
+.ship-method-btn-create-order {
+    height: 70px;
+    margin-top: 8px;
+    border-top: 1px solid rgb(240, 240, 240);
+}
+
+.create-order-btn-ship {
+    float: right;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    margin-left: 10px;
+    width: 22%;
+    border-radius: 4px;
+    margin-top: 14px;
+}
+
+.create-order-ship-finish-btn {
+    background-color: rgb(239, 76, 36);
+    color: aliceblue;
+}
+
+.create-order-ship-finish-btn:hover {
+    background-color: rgb(245, 53, 5);
+    cursor: pointer;
+}
+
+.create-order-ship-comback-btn:hover {
+    background-color: rgb(227, 230, 230);
+    cursor: pointer;
+}
+
+.ship-method-creaete-order-active {
+    border-left: 4px solid red;
+    border-bottom: 1px solid rgb(240, 139, 139);
+    border-top: 1px solid rgb(240, 139, 139);
+    border-right: 1px solid rgb(240, 139, 139);
+}
+
+.ship-create-order:hover {
+    cursor: pointer;
+}
+
+.voucher-item-container {
+    height: 100px;
+    margin-top: 8px;
+    border: 1px solid rgb(246, 230, 230);
+}
+
+.voucher-ship-item-container {
+    height: 100px;
+    margin-top: 8px;
+    border: 1px solid rgb(246, 230, 230);
+}
+
+.voucher-item-icon {
+    height: 100px;
+    width: 20%;
+    float: left;
+}
+
+.img-icon-voucher-free-ship {
+    height: 100px;
+    width: 100%;
+}
+
+.ship-opt-price {
+    display: block;
+    color: rgb(250, 2, 2);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.voucher-item-content {
+    height: 100px;
+    width: 80%;
+    float: left;
+    display: flex;
+    align-items: center;
+}
+
+.voucher-content {
+    margin-left: 16px;
+
+}
+
+.voucher-content-title {
+    font-size: 18px;
+    display: block;
+    font-weight: 600;
+    color: red;
+}
+
+.voucher-content-detail {
+    font-size: 14px;
+    display: block;
+}
+
+.location-choose {
+    color: rgb(21, 9, 241);
+    font-size: 16px;
+    margin-left: 16px;
+    display: block;
+    height: 30px;
+}
+
+.location-choose:hover {
+    cursor: pointer;
+    color: rgb(55, 79, 174);
+}
+
+.add-new-ship-contact {
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    position: fixed;
+    ;
+    background-color: rgb(2, 2, 2, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-new-ship-contact-container {
+    width: 40%;
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+}
+
+.add-new-ship-titlt {
+    width: 90%;
+    margin-top: 16px;
+    margin-left: 16px;
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-block;
+    text-transform: capitalize;
+}
+
+.add-new-ship-cbb {
+    width: 90%;
+    margin-top: 16px;
+    border-top: 1px solid rgb(189, 187, 187);
+    margin-left: 16px;
+    font-weight: 600;
+}
+
+.add-province-cbb {
+    width: 30%;
+    height: 20px;
+    margin-top: 16px;
+}
+
+.add-distrist-cbb {
+    margin-left: 5%;
+    width: 30%;
+    height: 20px;
+}
+
+.add-ward-cbb {
+    width: 30%;
+    margin-left: 5%;
+    height: 20px;
+}
+
+.add-ship-contact-input-container {
+    width: 100%;
+    color: black;
+    font-size: 14px;
+    font-weight: unset;
+}
+
+.add-contact-title {
+    margin-top: 20px;
+    width: 28.2%;
+    display: inline-block;
+}
+
+.add-contact-input {
+    width: 70%;
+    height: 20px;
+}
+
+.add-ship-contact-btn-container {
+    width: 100%;
+    margin-top: 20px;
+    border-top: 1px solid rgb(208, 207, 207);
+    color: black;
+    height: 92px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: unset;
+}
+
+.btn-add-new-contact {
+    height: 36px;
+    width: 20%;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-btn-ship-contact:hover {
+    cursor: pointer;
+    background-color: rgb(245, 67, 67);
+}
+
+.add-btn-ship-contact {
+    font-weight: 600;
+    margin-right: 12px;
+    background-color: red;
+    color: white;
+}
+
+.back-btn-ship-contact {
+    font-weight: 600;
+    margin-right: 12px;
+    background-color: rgb(251, 247, 247);
+    color: rgb(3, 3, 3);
+    border: 1px solid rgb(184, 181, 181);
+}
+
+.back-btn-ship-contact:hover {
+    background-color: rgb(187, 185, 185);
+    cursor: pointer;
+}
+
+.active-shipVoucher {
+    border-left: 4px solid rgb(134, 172, 237);
+    border-bottom: 1px solid rgb(134, 172, 237);
+    border-top: 1px solid rgb(134, 172, 237);
+    border-right: 1px solid rgb(134, 172, 237);
+}
+
+.active-voucher {
+    border-left: 4px solid rgb(125, 14, 14);
+    border-bottom: 1px solid rgb(240, 139, 139);
+    border-top: 1px solid rgb(240, 139, 139);
+    border-right: 1px solid rgb(240, 139, 139);
+}
+
+.voucher-item-container:hover {
+    cursor: pointer;
+}
+
+.chose-voucher {
+    color: black;
+    margin-right: 8px;
+}
+
+.add-new-ship-contact-container-pro5 {
+    width: 40%;
+    display: inline-block;
+    margin-top: -24px;
+}
+
+.add-contact-title-pro5 {
+    margin-top: 20px;
+    width: 50%;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.add-contact-input-pro5 {
+    width: 100%;
+    height: 20px;
+}
+
+.btn-add-new-contact-pro5 {
+    height: 36px;
+    width: 30%;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

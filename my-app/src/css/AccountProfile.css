@@ -1,0 +1,217 @@
+.fix-header {
+    height: 100px;
+}
+
+.my-profile-container {
+    width: 88%;
+    display: inline-block;
+    margin-left: 6%;
+}
+
+.left-nav {
+    width: 20%;
+    float: left;
+}
+
+.right-profile-status {
+    width: 80%;
+    float: left;
+    margin-top: 24px;
+}
+
+.profile-nav {
+    display: flex;
+    margin-top: 8px;
+    align-items: center;
+    width: 85%;
+    height: 30px;
+    border-bottom: 1px solid rgb(223, 217, 195);
+    text-transform: capitalize;
+}
+
+.profile-nav:hover {
+    cursor: pointer;
+    color: rgb(200, 196, 196);
+}
+
+.profile-manager {
+    margin-top: 16px;
+    text-transform: capitalize;
+    font-size: 24px;
+    font-weight: bold;
+    height: 40px;
+    width: 85%;
+    color: rgb(95, 93, 93);
+    border-bottom: 1px solid rgb(223, 217, 195);
+}
+
+.profile-container {
+    height: 400px;
+    width: 100%;
+}
+
+.fix-margin-left {
+    margin-left: 20%;
+}
+
+.title {
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.add-margin {
+    margin-top: 8px;
+}
+
+.btn-add {
+    margin-top: 24px;
+    margin-left: 20%;
+    height: 40px;
+    width: 20%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: white;
+}
+
+.delete-contact {
+    height: 30px;
+    width: 20%;
+    margin-top: 8px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: white;
+}
+
+.delete-contact:hover {
+    cursor: pointer;
+}
+
+.remkeinfo-btn {
+    height: 40px;
+    margin-top: 8px;
+    width: 20%;
+    background-color: rgb(248, 6, 6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    font-weight: 600;
+}
+
+.remkeinfo-btn:hover {
+    cursor: pointer;
+    background-color: rgb(245, 55, 55);
+}
+
+
+.full-device-pro5 {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgb(5, 4, 4, 0.5);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.remake-info-container {
+    display: inline-block;
+    width: 40%;
+    background-color: aliceblue;
+}
+
+.remake-info-title {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1PX SOLID rgb(210, 206, 206);
+}
+
+.remake-info-input {
+    height: 300px;
+    border-bottom: 1px solid rgb(200, 199, 201);
+}
+
+.remake-title-content {
+    color: black;
+    margin-left: 8px;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    display: block;
+}
+
+.input-content {
+    margin-left: 10%;
+    margin-top: 16px;
+}
+
+.input-content span {
+    display: block;
+    color: black;
+    font-weight: 500;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.input-content input {
+    width: 60%;
+    height: 20px;
+    margin-top: 8px;
+}
+
+
+.remake-btn {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.remake-btn-content {
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    width: 20%;
+}
+
+.remake-btn-confirm {
+    background-color: red;
+    margin-right: 8px;
+}
+
+.remake-btn-cancel {
+    background-color: rgb(214, 212, 212);
+    margin-right: 8px;
+}
+
+.remake-btn-cancel:hover {
+    cursor: pointer;
+    background-color: rgb(168, 169, 170);
+}
+
+.remake-btn-confirm:hover {
+    cursor: pointer;
+    background-color: rgb(241, 91, 91);
+}
+.error-remake-info{
+    margin-left: 10%;
+}
+.remake-info-input-pass{
+    height: 240px;
+    border-bottom: 1px solid rgb(200, 199, 201);
+}

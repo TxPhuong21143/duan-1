@@ -1,0 +1,186 @@
+.voucher-container-admin {
+    display: inline-block;
+    width: 100%;
+}
+
+.voucher-admin-title {
+    height: 40px;
+    background-color: gray;
+    width: 100%;
+}
+
+.col-admin-voucher-code {
+    width: 10%;
+    float: left;
+    color: black;
+    height: 40px;
+    font-weight: 600;
+}
+
+.col-admin-voucher-detail {
+    width: 20%;
+    float: left;
+    height: 40px;
+    color: black;
+    font-weight: 600;
+}
+
+.col-admin-voucher-begin {
+    width: 15%;
+    float: left;
+    height: 40px;
+    color: black;
+    font-weight: 600;
+}
+
+.col-admin-voucher-end {
+    width: 15%;
+    float: left;
+    color: black;
+    height: 40px;
+    font-weight: 600;
+}
+
+.col-admin-voucher-int {
+    width: 10%;
+    height: 40px;
+    float: left;
+    color: black;
+    font-weight: 600;
+}
+
+.col-admin-voucher-status {
+    width: 10%;
+    height: 40px;
+    float: left;
+    color: black;
+    font-weight: 600;
+}
+
+.col-admin-voucher-percent {
+    width: 10%;
+    float: left;
+    height: 40px;
+    color: black;
+    font-weight: 600;
+}
+
+.col-admin-voucher-action {
+    width: 10%;
+    float: left;
+    height: 40px;
+    color: black;
+    font-weight: 600;
+}
+
+.xy-center {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.col-admin-voucher-code-content {
+    width: 10%;
+    float: left;
+}
+
+.col-admin-voucher-detail-content {
+    width: 20%;
+    float: left;
+}
+
+.col-admin-voucher-begin-content {
+    width: 15%;
+    float: left;
+}
+
+.col-admin-voucher-end-content {
+    width: 15%;
+    float: left;
+}
+
+.col-admin-voucher-int-content {
+    width: 10%;
+    float: left;
+}
+
+.col-admin-voucher-status-content {
+    width: 10%;
+    float: left;
+}
+
+.col-admin-voucher-percent-content {
+    width: 10%;
+    float: left;
+}
+
+.col-admin-voucher-action-content {
+    width: 10%;
+    float: left;
+}
+
+.fix-margin-voucher {
+    margin-top: 12px;
+    height: 40px;
+}
+
+.input-voucher-text {
+    height: 24px;
+    width: 30%;
+    margin-top: 12px;
+    background-color: rgb(203, 201, 201);
+    color: aliceblue;
+
+}
+
+.input-voucher-date {
+    height: 20px;
+    width: 15%;
+}
+
+.select-opt-voucher {
+    height: 26px;
+    margin-top: 4px;
+    width: 10%;
+}
+
+.btn-add-voucher {
+    height: 36px;
+    width: 10%;
+    display: flex;
+    margin-top: 12px;
+    justify-content: center;
+    font-weight: 600;
+    align-items: center;
+    background-color: red;
+}
+
+.btn-add-voucher:hover {
+    cursor: pointer;
+    background-color: rgb(247, 111, 111);
+}
+
+.btn-voucher-mix {
+    height: 30px;
+    width: 80px;
+    margin-left: 12px;
+    background-color: red;
+}
+
+.btn-voucher-mixopen {
+    height: 30px;
+    width: 80px;
+    margin-left: 12px;
+    background-color: rgb(247, 238, 238);
+    color: black;
+}
+
+.btn-voucher-mixopen:hover {
+    cursor: pointer;
+    background-color: rgb(185, 186, 188);
+}
+
+.btn-voucher-mix:hover {
+    cursor: pointer;
+    background-color: rgb(250, 142, 142);
+}

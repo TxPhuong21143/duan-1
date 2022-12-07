@@ -1,0 +1,427 @@
+.fix-margin1-bill {
+    height: 30px;
+}
+
+.waitting-container {
+    display: inline-block;
+    width: 100%;
+}
+
+.column-billcode {
+    width: 10%;
+    float: left;
+}
+
+.column-createbill {
+    width: 15%;
+    float: left;
+}
+
+.column-title-waitting {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    color: black;
+}
+
+.column-title-waitting span {
+    color: aliceblue;
+    font-weight: 600;
+}
+
+.column-accountName {
+    width: 20%;
+    float: left;
+}
+
+.title-row-waitting {
+    height: 36px;
+    background-color: gray;
+}
+
+.column-reveiceName {
+    width: 20%;
+    float: left;
+}
+
+.column-reveiceSdt {
+    width: 20%;
+    float: left;
+}
+
+.column-shipMethod {
+    width: 15%;
+    float: left;
+}
+
+.detail-container {
+    height: 120px;
+    width: 100%;
+}
+
+.product-detail-bill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 20%;
+    float: left;
+}
+
+.product-img-bill {
+    height: 100px;
+}
+
+.cacul-container {
+    width: 25%;
+    float: left;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    height: 100px;
+}
+
+.bill-option-admin {
+    height: 40px;
+    width: 100%;
+}
+
+.option-voucher {
+    width: 100%;
+    height: 40px;
+}
+
+.option-bill-item {
+    width: 21%;
+    height: 40px;
+    margin-right: 24px;
+    color: black;
+    float: left;
+    display: block;
+}
+
+.option-bill-item span {
+    color: aliceblue;
+    font-weight: 600;
+}
+
+.btn-confirm {
+    background-color: red;
+    width: 15%;
+    float: left;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 1.5%;
+}
+
+.btn-confirm2 {
+    background-color: red;
+    width: 15%;
+    float: left;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 17%;
+}
+
+.btn-confirm2:hover,
+.btn-confirm:hover {
+    cursor: pointer;
+    background-color: rgb(246, 107, 107);
+}
+
+.bill0 {
+    color: beige;
+    font-weight: 600;
+}
+
+.bill-detail-admin-item {}
+
+.waitting-container:hover {
+    cursor: pointer;
+    background-color: rgb(89, 128, 167);
+}
+
+.header-bill {
+    width: 100%;
+    height: 140px;
+    display: flex;
+
+}
+
+.layout3 {
+    border: 1px solid gray;
+    width: 31.5%;
+    height: 140px;
+    background-color: rgb(53, 64, 73);
+    float: left;
+}
+
+.margin2 {
+    margin-right: 2%;
+}
+
+.info-bill {
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-weight: 600;
+}
+
+.row-bill {
+    width: 100%;
+    height: 33px;
+}
+
+.left-title {
+    width: 60%;
+    float: left;
+    height: 33px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 4px;
+    color: rgb(192, 189, 189);
+    font-weight: 600;
+}
+
+.right-content {
+    width: 35%;
+    float: left;
+    color: aliceblue;
+    font-weight: 600;
+    height: 33px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.fix-margintop {
+    margin-top: 16px;
+}
+
+.body-left {
+    width: 69.5%;
+    margin-right: 1%;
+    float: left;
+    border: 1px solid gray;
+    background-color: rgb(53, 64, 73);
+}
+
+.body-bill {
+    display: inline-block;
+    width: 99%;
+}
+
+.body-right {
+    width: 29%;
+    float: left;
+
+}
+
+.body-bill-header {
+    height: 36px;
+    border-bottom: 1px solid gray;
+}
+
+.col-img {
+    width: 10%;
+    float: left;
+    height: 30px;
+}
+
+.col-name {
+    width: 40%;
+    float: left;
+    height: 30px;
+}
+
+.col-quantity {
+    width: 10%;
+    float: left;
+    height: 30px;
+}
+
+.col-shellPrice {
+    width: 20%;
+    float: left;
+    height: 30px;
+}
+
+.col-price {
+    width: 20%;
+    height: 30px;
+    float: left;
+}
+
+.xy-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-detail-bill {
+    width: 100%;
+}
+
+
+.col-img-item {
+    width: 10%;
+    float: left;
+}
+
+.col-img-detail {
+    height: 100px;
+    width: 80%;
+}
+
+.col-name-item {
+    width: 40%;
+    float: left;
+}
+
+.col-quantity-item {
+    width: 10%;
+    float: left;
+}
+
+.col-shellPrice-item {
+    width: 20%;
+    float: left;
+}
+
+.col-price-item {
+    width: 20%;
+    float: left;
+}
+
+.item-detail-bill {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-customer {
+    width: 99.5%;
+    float: left;
+    border-bottom: 1px solid gray;
+    height: 36px;
+    margin-left: 4px;
+}
+
+.contact-content {
+    border: 1px solid gray;
+    background-color: rgb(53, 64, 73);
+    width: 100%;
+    display: inline-block;
+}
+
+.contact-detail {
+    height: 36px;
+    margin-top: 4px;
+    width: 100%;
+    margin-left: 4px;
+    float: left;
+}
+
+.fix-margintop {
+    height: 8px;
+}
+
+.contact-content-cus {
+    height: 160px;
+    width: 100%;
+    background-color: rgb(53, 64, 73);
+    border: 1px solid gray;
+}
+
+.result-bill {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+.result-content {
+    width: 50%;
+    height: 200px;
+}
+
+.row-result {
+    height: 30px;
+    border-top: 1px solid gray;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.row-result-title {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 30px;
+    width: 49%;
+    margin-left: 1%;
+    color: black;
+    float: left;
+}
+
+.row-result-content {
+    display: flex;
+    float: left;
+    width: 49%;
+    justify-content: right;
+    margin-right: 1%;
+    align-items: center;
+    height: 30px;
+}
+
+.total-resultbill {
+    font-weight: 600;
+    color: black;
+}
+
+.confirm-bill {
+    height: 30px;
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    margin-bottom: 8px;
+    margin-left: 50%;
+    float: left;
+    font-weight: 600;
+}
+
+.confirm-bill:hover {
+    cursor: pointer;
+    background-color: rgb(232, 102, 102);
+}
+
+.cancel-bill {
+    height: 30px;
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(185, 184, 184);
+    margin-bottom: 8px;
+    margin-left: 12px;
+    float: left;
+    font-weight: 600;
+    color: black;
+}
+
+.cancel-bill:hover {
+    cursor: pointer;
+
+    background-color: rgb(230, 231, 232);
+}

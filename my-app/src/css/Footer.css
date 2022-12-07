@@ -1,0 +1,92 @@
+.footer {
+    position: relative;
+    top: 120px;
+}
+
+.footer-contact {
+    height: 150px;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.contact-item {
+    width: 24%;
+    height: 100%;
+    background-color: rgb(33, 33, 33);
+    float: left;
+    border: 0.1px solid rgb(228, 220, 189);
+    text-align: center;
+
+}
+
+.footer-social {
+    width: 88%;
+    height: 240px;
+    padding-left: 6%;
+}
+
+.social-title {
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 56px;
+}
+
+.social-description {
+    font-size: 16px;
+    color: black;
+    font-weight: 100;
+    letter-spacing: 1px;
+
+}
+.des-social{
+    font-size: 20px;
+    color: black;
+}
+.social-item {
+    width: 33.333%;
+    border-bottom: 1px solid rgb(228, 220, 189);
+    height: 100%;
+    float: left;
+    text-align: center;
+
+}
+
+.contact-title {
+    color: aliceblue;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 4px;
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.contact-description {
+    color: aliceblue;
+    font-size: 14px;
+    font-weight: 700;
+
+}
+
+.footer-copy-right {
+    height: 100px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-icons{
+    height: 40px;
+    width: 40px;
+    margin-top: 20px;
+    color: aliceblue;
+}
+.social-icons{
+    height: 20px;
+    margin-left: 4px;
+    width: 20px;
+}
