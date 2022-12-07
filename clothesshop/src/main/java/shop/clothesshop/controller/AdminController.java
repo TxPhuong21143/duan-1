@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import shop.clothesshop.entities.Product;
+import shop.clothesshop.entities.adminrespon.AnalysisObject;
 import shop.clothesshop.entities.adminrespon.BillAnalysis;
 import shop.clothesshop.services.AdminServices;
 
@@ -27,5 +28,9 @@ public class AdminController {
     @RequestMapping(method = RequestMethod.PUT, value = "adminsetbill")
     public void adminSetBill(@RequestParam int opt, int idBill, int idEmployee) {
         adminServices.adminSetBill(opt, idBill, idEmployee);
+    }
+    @RequestMapping(method = RequestMethod.GET, value = "getanalysisshop")
+    public AnalysisObject getAnalysisShop12Month() {
+        return adminServices.analysisShop12Month();
     }
 }
