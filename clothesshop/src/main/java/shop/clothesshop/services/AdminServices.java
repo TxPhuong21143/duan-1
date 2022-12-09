@@ -208,4 +208,30 @@ private DBContext dbContext;
         ao.setAnalysisProfit12Month(monthAnalyses);
         return ao;
     }
+
+    @Override
+    public SalesObject getAllSales() {
+        SalesObject so = new SalesObject();
+        so.setShipVouchers(dbContext.salesRepo.getShipVoucher());
+        so.setVoucherVouchers(dbContext.salesRepo.getVoucher());
+        return so;
+    }
+
+    @Override
+    public void createVoucher(Sales data) {
+        data.setSalessStatusId(1);
+        dbContext.salesRepo.save(data);
+    }
+
+    @Override
+    public void closeVoucher(int idVoucher) {
+        Sales s = dbContext.salesRepo.findById(idVoucher).get();
+        if (s.getSalessStatusId() == 3) {
+            s.setSalessStatusId(1);
+        } else {
+            s.setSalessStatusId(3);
+        }
+        dbContext.salesRepo.save(s);
+    }
+
 }
