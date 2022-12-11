@@ -4,12 +4,11 @@ import org.springframework.web.multipart.MultipartFile;
 import shop.clothesshop.entities.AccountShipContact;
 import shop.clothesshop.entities.Bill;
 import shop.clothesshop.entities.Product;
+import shop.clothesshop.entities.Sales;
 import shop.clothesshop.entities.adminrequest.CreateAndRemakePropertyData;
 import shop.clothesshop.entities.adminrequest.CreateProductData;
 import shop.clothesshop.entities.adminrequest.HoldBillRequestPayBill;
-import shop.clothesshop.entities.adminrespon.HoldBill;
-import shop.clothesshop.entities.adminrespon.PrintBillData;
-import shop.clothesshop.entities.adminrespon.PropertyObject;
+import shop.clothesshop.entities.adminrespon.*;
 
 import java.io.IOException;
 import java.util.List;
