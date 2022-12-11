@@ -16,6 +16,8 @@ public class Accounts {
     private Integer accountId;
     @Column(name = "accountusername")
     private String accountUserName;
+    @Column(name = "accountcode")
+    private String accountCode;
     @Column(name = "accountpassword")
     private String accountPassword;
     @Column(name = "accountstatusid", insertable = false, updatable = false)
@@ -42,6 +44,14 @@ public class Accounts {
     private String name;
     @Column(name = "sdt")
     private String sdt;
+
+    public String getAccountCode() {
+        return accountCode;
+    }
+
+    public void setAccountCode(String accountCode) {
+        this.accountCode = accountCode;
+    }
 
     public String getSdt() {
         return sdt;

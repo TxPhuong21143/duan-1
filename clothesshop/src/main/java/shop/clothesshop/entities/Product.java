@@ -15,6 +15,8 @@ public class Product {
     @Column(name = "productid")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productId;
+    @Column(name="productcode")
+    private String productCode;
     @Column(name = "categorytypeid")
     private Integer categoryTypeId;
     @ManyToOne
@@ -74,6 +76,14 @@ public class Product {
     @JoinColumn(name = "productstatusid", insertable = false, updatable = false)
     @JsonBackReference
     private ProductStatus productStatus;
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
+    }
 
     public Integer getProductStatusId() {
         return productStatusId;

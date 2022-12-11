@@ -191,6 +191,9 @@ public class AppServices implements IAppServices {
         Role role = dbContext.roleRepo.findById(3).get();
         account.setRole(role);
         dbContext.accountRepo.save(account);
+        dbContext.accountRepo.save(account);
+        account.setAccountCode("TK"+account.getAccountId());
+        dbContext.accountRepo.save(account);
         accountData.setUserPass("");
         accountData.setId(account.getAccountId());
         return accountData;
