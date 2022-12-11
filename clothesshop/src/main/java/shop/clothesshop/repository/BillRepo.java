@@ -39,4 +39,7 @@ public interface BillRepo extends JpaRepository<Bill, Integer> {
 
     @Query(nativeQuery = true, value = "select  * from bill where billstatusid =3")
     public List<Bill> getAllBillShipped();
+
+    @Query(nativeQuery = true, value = "select  * from bill where billstatusid = 7 order by billid desc")
+    public List<Bill> getAllHoldingBill();
 }
