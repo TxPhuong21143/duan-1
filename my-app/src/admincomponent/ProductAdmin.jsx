@@ -30,10 +30,10 @@ const productAdmin = {
         const brand = useRef(0)
         const size = useRef(0)
         const status = useRef(0)
-        let id = 0
+       const [id,setId] = useState(undefined)
         function setProduct2Input(item) {
             console.log(item)
-            id = item.productId
+            setId(item.productId)
             productName.current.value = item.productName
             productDetail.current.value = item.productDetail
             shellPrice.current.value = item.shellPrice
@@ -46,7 +46,7 @@ const productAdmin = {
             status.current.value = item.productStatusId
         }
         function check() {
-            if(id==0){
+            if(id===undefined){
                 alert("Hãy chọn sản phâm")
                 return false
             }
@@ -276,7 +276,7 @@ const productAdmin = {
                 alert("Phải là số!")
                 return false
             }
-            
+
             return true
         }
         return (

@@ -24,6 +24,7 @@ function CreateOrder() {
     //   const account = JSON.parse(localStorage.getItem('auth'))
     const [calculResult, setCalculResult] = useState()
     const [priceAfterShip, setPriceAfterShip] = useState(0)
+    const [shipPriceFix,setShipPriceFix] = useState(0)
     useEffect(() => {
         const getCalcul = async () => {
             const data = await getApiProduct.getCalculBag(listPay)
@@ -69,6 +70,7 @@ function CreateOrder() {
             const shipPrice = await shipApi.calculFee(service.data[0].service_id, priceAfterShip, shipContactChose[0].districtID, shipContactChose[0].wardID)
             localStorage.setItem('shipPrice', shipPrice.data.total)
             setPriceAfterShip(total + shipPrice.data.total)
+            setShipPriceFix(shipPrice.data.total)
         }
         if (opt === 1) {
             total = calculResult.orderItems.reduce((total, next) => {
@@ -76,6 +78,7 @@ function CreateOrder() {
             }, 0)
             localStorage.setItem('shipPrice', calculResult.shipMethods[1].price)
             setPriceAfterShip(total + calculResult.shipMethods[1].price)
+            setShipPriceFix(199000)
         }
     }
     const [showShipName, setShowShipName] = useState('')
@@ -101,7 +104,7 @@ function CreateOrder() {
                 {calculResult ? <ListProduct calculResult={calculResult} key={Math.random()} /> : ""}
                 <ShipMethod showShipName={showShipName} priceAfterShip={priceAfterShip} setPriceAfterShip={setPriceAfterShip} setShowShip={setShowShip} calculResult={calculResult} />
                 <AddVoucherBill voucherShipName={voucherShipName} voucherName={voucherName} setShowVoucher={setShowVoucher} />
-                <ConfirmContainer priceAfterShip={priceAfterShip} />
+                <ConfirmContainer priceAfterShip={priceAfterShip} shipPriceFix={shipPriceFix}/>
             </div>
         </>
     )
@@ -272,7 +275,7 @@ function AddVoucherBill({ voucherName, voucherShipName, setShowVoucher }) {
         </>
     )
 }
-function ConfirmContainer({ priceAfterShip }) {
+function ConfirmContainer({ priceAfterShip,shipPriceFix }) {
     const navi = useNavigate()
     const ghn = JSON.parse(localStorage.getItem('ghn'))
     function checkNull() {
@@ -348,7 +351,7 @@ function ConfirmContainer({ priceAfterShip }) {
                     <div className='show-opt-confirm'><span>Tổng tiền hàng: </span>
                         <span className='fix-confirm-price'>{calcul(priceAfterShip) + "đ"}</span></div>
                     <div className='show-opt-confirm'><span>Phí vận chuyển: </span>
-                        <span className='fix-confirm-price'>{(ghn ? calcul(ghn) : "0") + "đ"}</span></div>
+                        <span className='fix-confirm-price'>{(ghn ? calcul(shipPriceFix) : "0") + "đ"}</span></div>
                     <div className='show-opt-confirm'><span>Tổng thanh toán: </span>
                         <span className='price-result-createorder fix-confirm-priceresult'>{calcul(priceAfterShip + ghn - free - sixdo) + "đ"}</span></div>
                 </div>
@@ -542,7 +545,8 @@ function OptionVoucher({ setVoucherShipName, setVoucherName, setShowVoucher, cal
                         </div>
                         <div>
                             {calculResult.salesOfBill.filter((item) => {
-                                return item.saleTypeId === 1
+                                const today = new Date()
+                                return item.saleTypeId === 1  && new Date(item.endDate) > today
                             }).map((item, index) => {
                                 return <VoucherItem index={index} clearAndSetActive={clearAndSetActive} item={item} type={1} setShip={setShip} setVoucherOpt={setVoucherOpt} />
                             })}
@@ -553,7 +557,8 @@ function OptionVoucher({ setVoucherShipName, setVoucherName, setShowVoucher, cal
                         </div>
                         <div>
                             {calculResult.salesOfBill.filter((item) => {
-                                return item.saleTypeId === 2
+                                  const today = new Date()
+                                return item.saleTypeId === 2 && new Date(item.endDate) > today
                             }).map((item, index) => {
                                 return <VoucherItem clearAndSetActive={clearAndSetActive} item={item} index={index} type={2} setShip={setShip} setVoucherOpt={setVoucherOpt} />
                             })}

@@ -43,7 +43,7 @@ const voucher = {
             </>
         )
     },
-    VoucherItem: ({ item,close }) => {
+    VoucherItem: ({ item, close }) => {
         return (
             <>
                 <div className="fix-margin-voucher">
@@ -53,14 +53,14 @@ const voucher = {
                     <div className="col-admin-voucher-end-content xy-center">{item.endDate}</div>
                     <div className="col-admin-voucher-int-content xy-center">{item.salesInt}</div>
                     <div className="col-admin-voucher-percent-content xy-center">{item.salesPercent}</div>
-                    <div className="col-admin-voucher-status-content xy-center">{item.salessStatusId==3?"Ngừng cung cấp":"Đang cung cấp"}</div>
-                    {item.salessStatusId == 3 ? <div className="btn-voucher-mixopen col-admin-voucher-action-content xy-center" onClick={()=>{
+                    <div className="col-admin-voucher-status-content xy-center">{item.salessStatusId == 3 ? "Ngừng áp dụng" : "Đang áp dụng"}</div>
+                    {item.salessStatusId == 3 ? <div className="btn-voucher-mixopen col-admin-voucher-action-content xy-center" onClick={() => {
                         close(item.salesId)
                     }}>Mở lại</div> : ""}
-                    {item.salessStatusId == 1 ? <div className="btn-voucher-mix col-admin-voucher-action-content xy-center" onClick={()=>{
+                    {item.salessStatusId == 1 ? <div className="btn-voucher-mix col-admin-voucher-action-content xy-center" onClick={() => {
                         close(item.salesId)
                     }}>Dừng</div> : ""}
-                    {item.salessStatusId == 2 ? <div className="btn-voucher-mix col-admin-voucher-action-content xy-center" onClick={()=>{
+                    {item.salessStatusId == 2 ? <div className="btn-voucher-mix col-admin-voucher-action-content xy-center" onClick={() => {
                         close(item.salesId)
                     }}>Dừng</div> : ""}
                 </div>
@@ -76,6 +76,10 @@ const voucher = {
         const begin = useRef(0)
         const end = useRef(0)
         function check() {
+            if (typeVoucher.current.value == 2 && howMuch.current.value >= 100) {
+                alert("Không thể giảm nhiều hơn hoặc bằng 100%")
+                return false
+            }
             if (code.current.value.trim().length === 0) {
                 alert("Không được để trống mã!")
                 return false
@@ -111,6 +115,11 @@ const voucher = {
                 alert("Ngày kết thúc phải là tương lai!")
                 return false
             }
+            const beginVOucher = new Date(begin.current.value)
+            if (beginVOucher > endVoucher) {
+                alert("Ngày bắt đầu phải trước ngày kết thúc!")
+                return false
+            }
             return true
         }
         async function createVoucher() {
@@ -127,7 +136,7 @@ const voucher = {
                 openDate: begin.current.value
             }
             await adminApi.createSales(data)
-            alert("ok")
+            alert("Thêm thành công!")
         }
         return (
             <>
