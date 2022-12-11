@@ -29,5 +29,5 @@ public interface IAppServices {
     public AccountBag addProduct2Bag(int accountId, int productId, int quantity);
 
     public AccountBag deleteAccountBag(int accountBagId);
-  
+    public CreateOrder createOrder(Integer[] listIdAccountBag);
 }

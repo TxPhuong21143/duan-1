@@ -230,4 +230,29 @@ public class AppServices implements IAppServices {
         return accountBag.get();
     }
 
+    @Override
+    public CreateOrder createOrder(Integer[] listIdAccountBag) {
+        CreateOrder co = new CreateOrder();
+        List<OrderItem> orderItems = new ArrayList<>();
+        List<Sales> salesOfBill = dbContext.salesRepo.getAllOfBillWithoutOff();
+        List<ShipMethod> shipMethods = dbContext.shipMethodRepo.findAll();
+        List<BuyMethod> buyMethods = dbContext.buyMethodRepo.findAll();
+        List<AccountShipContact> accountShipContacts = dbContext.accountBagRepo.findById(listIdAccountBag[0]).get().getAccount().getAccountShipContacts();
+        for (Integer i : listIdAccountBag) {
+            OrderItem oi = new OrderItem();
+            AccountBag ab = dbContext.accountBagRepo.findById(i).get();
+            oi.setAccountBagId(i);
+            oi.setProduct(ab.getProduct());
+            oi.setQuantity(ab.getQuantity());
+            oi.setCategoryType(ab.getProduct().getCategoryType());
+            orderItems.add(oi);
+        }
+        co.setAccountShipContacts(accountShipContacts);
+        co.setOrderItems(orderItems);
+        co.setSalesOfBill(salesOfBill);
+        co.setBuyMethods(buyMethods);
+        co.setShipMethods(shipMethods);
+        return co;
+    }
+
 }
