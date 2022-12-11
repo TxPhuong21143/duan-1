@@ -1,17 +1,17 @@
 package shop.clothesshop.entities.adminrespon;
 
 public class TopAccountPaid {
-    private Integer idAccount;
+    private String accountCode;
     private String name;
     private String sdt;
     private Double totalPaid;
 
-    public Integer getIdAccount() {
-        return idAccount;
+    public String getAccountCode() {
+        return accountCode;
     }
 
-    public void setIdAccount(Integer idAccount) {
-        this.idAccount = idAccount;
+    public void setAccountCode(String accountCode) {
+        this.accountCode = accountCode;
     }
 
     public String getName() {

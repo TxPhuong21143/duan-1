@@ -1,17 +1,17 @@
 package shop.clothesshop.entities.adminrespon;
 
 public class TopProductSold {
-    private Integer idProduct;
+    private String productCode;
     private String name;
     private Integer sold;
     private Integer inventory;
 
-    public Integer getIdProduct() {
-        return idProduct;
+    public String getProductCode() {
+        return productCode;
     }
 
-    public void setIdProduct(Integer idProduct) {
-        this.idProduct = idProduct;
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
     }
 
     public String getName() {

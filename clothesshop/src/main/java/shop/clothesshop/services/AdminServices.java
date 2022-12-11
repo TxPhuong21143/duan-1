@@ -483,7 +483,7 @@ public class AdminServices implements IAdminServices {
             Product p = dbContext.productRepo.findById(id).get();
             tps.setInventory(p.getQuantity());
             tps.setName(p.getProductName());
-            tps.setIdProduct(id);
+            tps.setProductCode(p.getProductCode());
             List<BillDetail> allBillDetailOfThisProduct = dbContext.billDetailRepo.allBillDetailOfProductBillShipped(id);
             Integer soldQuantity = 0;
             for (BillDetail bd : allBillDetailOfThisProduct) {
@@ -499,7 +499,7 @@ public class AdminServices implements IAdminServices {
         for (int id : top5AccountPaidId) {
             TopAccountPaid tap = new TopAccountPaid();
             Accounts a = dbContext.accountRepo.findById(id).get();
-            tap.setIdAccount(id);
+            tap.setAccountCode(a.getAccountCode());
             tap.setSdt(a.getSdt());
             tap.setName(a.getName());
             tap.setTotalPaid(dbContext.billDetailRepo.getTotalPaidByIdAccount(id));
