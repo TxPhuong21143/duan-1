@@ -162,6 +162,7 @@ const billAdmin = {
                 await adminApi.adminSetBill(2, idBill, JSON.parse(localStorage.getItem('auth')).id)
             }
         }
+        const navi = useNavigate()
         return (
             <>
                 <div className='bill-detail-admin-item'>
@@ -231,10 +232,12 @@ const billAdmin = {
                                     </div>
                                 </div>
                             </div>
-                            {item.billStatusId === 1 ? <a href='/admin'>
+                            {item.billStatusId === 1 ? 
                                 <div className='confirm-bill' onClick={() => {
                                     adminSetBill(2, item.billId)
-                                }}>Xác nhận đơn hàng</div></a> : ""}
+                                    localStorage.setItem('printId',item.billId)
+                                    navi('/printf')
+                                }}>Xác nhận đơn hàng</div> : ""}
                             {item.billStatusId === 1 ? <a href='/admin'><div className='cancel-bill' onClick={() => {
                                 adminSetBill(1, item.billId)
                             }}>Hủy đơn hàng</div></a> : ""}

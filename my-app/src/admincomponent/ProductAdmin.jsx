@@ -3,6 +3,7 @@ import adminApi from '../api/AdminApi'
 import { useRef, useState } from 'react'
 import { useEffect } from 'react'
 import { BsPencil } from "react-icons/bs";
+import { useNavigate } from 'react-router';
 const productAdmin = {
     Product: ({ lenguage }) => {
         const searchInput = useRef(0)
@@ -46,7 +47,7 @@ const productAdmin = {
         }
         function check() {
             if(id==0){
-                alert("Hãy chọn sản phẩm!")
+                alert("Hãy chọn sản phâm")
                 return false
             }
             if (productName.current.value.trim().length == 0) {
@@ -102,7 +103,7 @@ const productAdmin = {
                     }} />
                     <div className="fix-marigintop"></div>
                     {listProduct ? listProduct.map((item) => {
-                        return <productAdmin.ItemProduct setProduct2Input={setProduct2Input} item={item} />
+                        return <productAdmin.ItemProduct setList={setList} setProduct2Input={setProduct2Input} item={item} />
                     }) : ""}
                 </div>
                 <div className="half-inshop margin-admin-inshop">
@@ -154,18 +155,18 @@ const productAdmin = {
                             alert("Thay đổi thành công!")
                             return
                         }
-                        
                     }}>Cập nhật</div>
                 </div>
             </>
         )
     },
-    ItemProduct: ({ item, setProduct2Input }) => {
+    ItemProduct: ({ item, setProduct2Input,setList }) => {
         return (
             <>
                 <div className="fix-margintop8px"></div>
                 <div className="search-item-contaier" onClick={() => {
                     setProduct2Input(item)
+                    setList(undefined)
                 }}>
                     <img src={"data:image/jpeg;base64," + item.productImgs[0].productImg} alt="" className="img-search" />
                     <div className="detail-product-search">
@@ -177,7 +178,7 @@ const productAdmin = {
         )
     }
     ,
-    AddProduct: () => {
+    AddProduct: ({setBodyOpt}) => {
         const [selectedFile1, setFile1] = useState(undefined)
         const [selectedFile2, setFile2] = useState(undefined)
         async function upload() {
@@ -199,7 +200,7 @@ const productAdmin = {
                     productDetail: productDetail.current.value.trim(),
                     productPrice: productPrice.current.value.trim(),
                     productShellPrice: productShellPrice.current.value.trim(),
-                    productQuantity: productShellPrice.current.value.trim(),
+                    productQuantity: productQuantity.current.value.trim(),
                     color: color.current.value,
                     producer: producer.current.value,
                     brand: brand.current.value,
@@ -211,13 +212,7 @@ const productAdmin = {
                 form.append('data', JSON.stringify(data))
                 await adminApi.addProduct(form)
                 alert("Thêm sản phẩm thành công")
-                productName.current.innerHTML = ''
-                productDetail.current.innerHTML = ''
-                productPrice.current.innerHTML = ''
-                productShellPrice.current.innerHTML = ''
-                productQuantity.current.innerHTML = ''
-                img1.current.style.display = 'none'
-                img2.current.style.display = 'none'
+                setBodyOpt(2)
                 return
             }
             alert("Sản phẩm phải có 2 hình ảnh để hiển thị!")
@@ -243,7 +238,6 @@ const productAdmin = {
                 setProps(data)
             }
             getProps()
-
         }, [])
         if (propertys) {
             console.log(propertys)
@@ -282,6 +276,7 @@ const productAdmin = {
                 alert("Phải là số!")
                 return false
             }
+            
             return true
         }
         return (

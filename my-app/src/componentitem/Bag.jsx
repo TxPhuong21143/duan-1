@@ -4,6 +4,8 @@ import getApiProduct from "../api/ProductAPI.js";
 import "../css/Bag.css";
 import { useNavigate } from "react-router-dom"
 function Bag() {
+  localStorage.removeItem('freeshipvoucher')
+  localStorage.removeItem('sixdovoucher')
   const isAccountOnline = localStorage.getItem('auth')
   const navi = useNavigate()
   useEffect(() => {

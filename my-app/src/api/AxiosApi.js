@@ -4,7 +4,9 @@ import queryString from "query-string";
 // Set up default config for http requests here
 // Please have a look at here `https://github.com/axios/axios#request- config` for the full list of configs
 const axiosClient = axios.create({
-  baseURL: "http://localhost:8082/",
+  // baseURL: "http://localhost:8080/",
+  // baseURL: "http://10.10.22.209:8082/",
+  baseURL: "http://192.168.1.120:8080/",
   headers: {
     "content-type": "application/json",
   },

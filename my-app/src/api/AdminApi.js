@@ -57,13 +57,53 @@ const adminApi = {
     const url = `/api/admin1.0/remakeproduct`;
     return axiosClient.post(url, data);
   },
-  createBillHolding: (data,idEmployee,billId) => {
+  createBillHolding: (data, idEmployee, billId) => {
     const url = `/api/admin1.0/shellinshop?idEmployee=${idEmployee}&billId=${billId}`;
     return axiosClient.post(url, data);
   },
-  createBillInShop: (data,idEmployee) => {
+  createBillInShop: (idEmployee) => {
     const url = `/api/admin1.0/createbillinshop?idEmployee=${idEmployee}`;
-    return axiosClient.post(url, data);
+    return axiosClient.post(url);
+  },
+  removeBillDetailHolding: (idBillDetail) => {
+    const url = `/api/admin1.0/deletebilldetail?idBillDetail=${idBillDetail}`;
+    return axiosClient.get(url);
+  },
+  getAllHoldingBill: () => {
+    const url = `/api/admin1.0/getallholdingbill`;
+    return axiosClient.get(url);
+  },
+  findProductById: (idProduct) => {
+    const url = `/api/admin1.0/findproductbyid?idProduct=${idProduct}`;
+    return axiosClient.get(url);
+  },
+  getAllBillDetailOfBill: (idBill) => {
+    const url = `/api/admin1.0/getallbilldetailofbill?idBill=${idBill}`;
+    return axiosClient.get(url);
+  },
+  addProduct2BillDetail: (idProduct, idBill) => {
+    const url = `/api/admin1.0/addproduct2billdetail?idProduct=${idProduct}&idBill=${idBill}`;
+    return axiosClient.get(url);
+  },
+  deleteBillDetail: (idBillDetail) => {
+    const url = `/api/admin1.0/deletebilldetail2?idBillDetail=${idBillDetail}`;
+    return axiosClient.get(url);
+  },
+  updateBillDetailQuantity: (idBillDetail, quantity) => {
+    const url = `/api/admin1.0/updatebilldetailquantity?idBillDetail=${idBillDetail}&quantity=${quantity}`;
+    return axiosClient.get(url);
+  },
+  getSumBill: (idBill) => {
+    const url = `/api/admin1.0/getsumbill?idBill=${idBill}`;
+    return axiosClient.get(url);
+  },
+  payHoldBill: (data) => {
+    const url = `/api/admin1.0/getpaybillrequest`;
+    return axiosClient.post(url,data);
+  },
+  printBill: (idBill) => {
+    const url = `/api/admin1.0/printbill?idBill=${idBill}`;
+    return axiosClient.get(url);
   },
 };
 export default adminApi;

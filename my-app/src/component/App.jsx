@@ -12,6 +12,7 @@ import AccountProfile from "../componentitem/AccountProfile";
 import Admin from "../admincomponent/Admin"
 import {useNavigate} from 'react-router-dom'
 import { useEffect } from "react";
+import PrintBill from "../admincomponent/PrintBill";
 function App() {
   const [guest, setGuest] = useState(true)
   const isAuth = JSON.parse(localStorage.getItem('auth'))
@@ -67,6 +68,7 @@ function App() {
         <Route path="/my-order/" element={<MyOrder />}></Route>
         <Route path="/my-profile/" element={<AccountProfile />}></Route>
         <Route path="/create-order" element={<CreateOrder />}></Route>
+        <Route path="/printf" element={<PrintBill />}></Route>
       </Routes>
       {<LoginAndSignIn
         setGuest={setGuest}

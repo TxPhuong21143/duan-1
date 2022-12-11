@@ -11,7 +11,7 @@
 }
 
 .table-detail {
-    width: 55%;
+    width: 99%;
     float: left;
     background-color: rgb(52, 64, 72);
     display: inline-block;
@@ -105,6 +105,9 @@
     display: flex;
     border-radius: 5px;
     margin-top: 4px;
+}
+.upload:hover{
+    cursor: pointer;
 }
 
 .input-product {

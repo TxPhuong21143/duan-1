@@ -292,9 +292,11 @@ function ConfirmContainer({ priceAfterShip }) {
             alert("GHN chưa tính được phí!")
             return false
         }
-        alert("ok")
+        alert("Thành Công.!")
         return true
     }
+    const freeShipVoucher = JSON.parse(localStorage.getItem('freeshipvoucher'))
+    const sixdoVoucher = JSON.parse(localStorage.getItem('sixdovoucher'))
     async function createOrder() {
         if (!checkNull()) {
             return
@@ -336,7 +338,7 @@ function ConfirmContainer({ priceAfterShip }) {
                     <div className='show-opt-confirm'><span>Phí vận chuyển: </span>
                         <span className='fix-confirm-price'>{(ghn ? calcul(ghn) : "0") + "đ"}</span></div>
                     <div className='show-opt-confirm'><span>Tổng thanh toán: </span>
-                        <span className='price-result-createorder fix-confirm-priceresult'>{calcul(priceAfterShip + ghn) + "đ"}</span></div>
+                        <span className='price-result-createorder fix-confirm-priceresult'>{calcul(priceAfterShip + ghn - freeShipVoucher - sixdoVoucher) + "đ"}</span></div>
                 </div>
                 <div className='create-order-btn'>
                     <div className='create-order-btn-div' onClick={() => {
@@ -579,10 +581,12 @@ function VoucherItem({ clearAndSetActive, item, index, type, setShip, setVoucher
                 if (type === 1) {
                     setShip(item.salesId)
                     clearAndSetActive(1, index)
+                    localStorage.setItem('freeshipvoucher', item.salesInt + item.salesPercent)
                 }
                 if (type === 2) {
                     setVoucherOpt(item.salesId)
                     clearAndSetActive(2, index)
+                    localStorage.setItem('sixdovoucher', item.salesInt + item.salesPercent)
                 }
             }}>
                 <div className='voucher-item-icon'>

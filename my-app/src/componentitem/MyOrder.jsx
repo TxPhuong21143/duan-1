@@ -268,11 +268,7 @@ function OptionShipping({ setOrder, bill, voucherSIXDO, freeShip }) {
         </div>
         <div className="btn-opt">
           <div className="fix-widbtn"></div>
-          <div className="btn-item-wait btn-item" onClick={() => {
-            cancel(bill.billId, 3, setOrder)
-          }}>
-            <span className="btn_title">Hủy Đơn</span>
-          </div>
+         
         </div>
       </div>
     </>

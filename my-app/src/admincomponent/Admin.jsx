@@ -7,6 +7,8 @@ import productAdmin from './ProductAdmin'
 import billAdmin from './BillAdmin'
 import voucher from './Voucher'
 import inShop from './InShop'
+import adminApi from '../api/AdminApi'
+import CreateBill from './CreateBill'
 function Admin({ setGuest, setLogin }) {
     const isAuth = JSON.parse(localStorage.getItem('auth'))
     const navi = useNavigate()
@@ -45,7 +47,7 @@ function Admin({ setGuest, setLogin }) {
         navi("/")
     }
     const [bodyOpt, setBodyOpt] = useState(1)
-    const [dataBillDetail,setDataBillDetail] = useState({})
+    const [dataBillDetail, setDataBillDetail] = useState({})
     return (
         <>
             <div className='admin-container'>
@@ -77,6 +79,7 @@ function Admin({ setGuest, setLogin }) {
                     <div className='fix-magrin-botton'></div>
                     <NavTitle title={"Mua Tại Quầy"} />
                     <NavRow content={'Tạo HĐ'} setBodyOpt={setBodyOpt} opt={13} />
+                    <NavRow content={'Hóa Đơn Chờ'} setBodyOpt={setBodyOpt} opt={15} />
                 </div>
                 <div className='header-admin'>
                     <div className='admin-icon-header'></div>
@@ -108,18 +111,19 @@ function Admin({ setGuest, setLogin }) {
                         {bodyOpt === 99 ? <billAdmin.BillDetail item={dataBillDetail} lenguage={lenguage} /> : ''}
                         {bodyOpt === 1 ? <analysis.Analysis lenguage={lenguage} /> : ''}
                         {bodyOpt === 2 ? <productAdmin.Product lenguage={lenguage} /> : ''}
-                        {bodyOpt === 3 ? <productAdmin.AddProduct lenguage={lenguage} /> : ''}
-                        {bodyOpt === 4 ? <productAdmin.AddProperty lenguage={lenguage} type={1}/> : ''}
-                        {bodyOpt === 5 ? <productAdmin.AddProperty lenguage={lenguage} type={2}/> : ''}
-                        {bodyOpt === 6 ? <productAdmin.AddProperty lenguage={lenguage} type={3}/> : ''}
-                        {bodyOpt === 7 ? <productAdmin.AddProperty lenguage={lenguage} type={4}/> : ''}
-                        {bodyOpt === 8 ? <billAdmin.WaitingBill setDataBillDetail={setDataBillDetail} lenguage={lenguage} setBodyOpt={setBodyOpt}/> : ''}
-                        {bodyOpt === 9 ? <billAdmin.ShippingBill setDataBillDetail={setDataBillDetail} lenguage={lenguage} setBodyOpt={setBodyOpt}/> : ''}
-                        {bodyOpt === 10 ? <billAdmin.ShippedBill setDataBillDetail={setDataBillDetail} lenguage={lenguage} setBodyOpt={setBodyOpt}/> : ''}
+                        {bodyOpt === 3 ? <productAdmin.AddProduct lenguage={lenguage} setBodyOpt={setBodyOpt} /> : ''}
+                        {bodyOpt === 4 ? <productAdmin.AddProperty lenguage={lenguage} type={1} /> : ''}
+                        {bodyOpt === 5 ? <productAdmin.AddProperty lenguage={lenguage} type={2} /> : ''}
+                        {bodyOpt === 6 ? <productAdmin.AddProperty lenguage={lenguage} type={3} /> : ''}
+                        {bodyOpt === 7 ? <productAdmin.AddProperty lenguage={lenguage} type={4} /> : ''}
+                        {bodyOpt === 8 ? <billAdmin.WaitingBill setDataBillDetail={setDataBillDetail} lenguage={lenguage} setBodyOpt={setBodyOpt} /> : ''}
+                        {bodyOpt === 9 ? <billAdmin.ShippingBill setDataBillDetail={setDataBillDetail} lenguage={lenguage} setBodyOpt={setBodyOpt} /> : ''}
+                        {bodyOpt === 10 ? <billAdmin.ShippedBill setDataBillDetail={setDataBillDetail} lenguage={lenguage} setBodyOpt={setBodyOpt} /> : ''}
                         {bodyOpt === 11 ? <voucher.Voucher /> : ''}
                         {bodyOpt === 12 ? <voucher.CreateVoucher /> : ''}
-                        {bodyOpt === 13 ? <inShop.UI setBodyOpt={setBodyOpt}/> : ''}
-                        {bodyOpt === 14 ? <inShop.CreateBill /> : ''}
+                        {bodyOpt === 13 ? <CreateBill setBodyOpt={setBodyOpt} /> : ''}
+                        {bodyOpt === 15 ? <inShop.HoldingBill setBodyOpt={setBodyOpt} /> : ''}
+                        {bodyOpt === 16 ? <CreateBill setBodyOpt={setBodyOpt} billIdUpdate={JSON.parse(localStorage.getItem('holdbillid'))}/> : ''}
                     </div>
                 </div>
             </div>
@@ -136,9 +140,18 @@ function NavTitle({ title }) {
     )
 }
 function NavRow({ icon, content, setBodyOpt, opt }) {
+
     return (
         <>
             <div className='admin-navigator-row-container' onClick={() => {
+                if (opt == 13) {
+                    const createBill = async () => {
+                        // const data = await adminApi.createBillInShop(JSON.parse(localStorage.getItem('auth')).id)
+                        // localStorage.setItem('holdbillid', data.billId)
+                    }
+                    createBill()
+                  
+                }
                 setBodyOpt(opt)
             }}>
                 <span>{content}</span>
