@@ -363,7 +363,8 @@ public class AdminServices implements IAdminServices {
         printBillData.setCloseDate(bill.getCloseDateTime());
         return printBillData;
     }
-     @Override
+
+    @Override
     public void adminSetBill(int opt, int billId, int idEmployee) {
         if (opt == 1) {
             Bill bill = dbContext.billRepo.findById(billId).get();
@@ -387,7 +388,6 @@ public class AdminServices implements IAdminServices {
             return;
         }
     }
-
 
 
     @Override
@@ -429,19 +429,27 @@ public class AdminServices implements IAdminServices {
             if (type == 1) {
                 ba.setShipStatus("Đơn Chờ");
             }
-            ba.setReveceiContact(bill.getAccountShipContact().getAccountDetailAddress());
-            ba.setReveceiMethod(bill.getShipMethod().getShipMethodName());
+            if (bill.getAccountShipContact() != null) {
+                ba.setReveceiContact(bill.getAccountShipContact().getAccountDetailAddress());
+            }
+            if (bill.getShipMethod() != null) {
+                ba.setReveceiMethod(bill.getShipMethod().getShipMethodName());
+            }
             ba.setBuyMethod(bill.getBuyMethod().getBuyMethodName());
             ba.setBillStatus(bill.getBillStatus().getBillStatusDetail());
             ba.setNotification(bill.getBuyerNotification());
             ba.setBillId(bill.getBillId());
             ba.setCreateBill(bill.getCreateDate());
             ba.setBillCode(bill.getBillCode());
-            ba.setCustomerName(bill.getAccountShipContact().getAccount().getName());
-            ba.setReveceiName(bill.getAccountShipContact().getReceiverName());
-            ba.setReveceiSdt(bill.getAccountShipContact().getAccountPhoneNumber());
-            ba.setIdCustomer(bill.getAccountShipContact().getAccount().getAccountId());
+            if (bill.getAccountShipContact() != null) {
+                ba.setCustomerName(bill.getAccountShipContact().getAccount().getName());
+                ba.setReveceiName(bill.getAccountShipContact().getReceiverName());
+                ba.setReveceiSdt(bill.getAccountShipContact().getAccountPhoneNumber());
+                ba.setIdCustomer(bill.getAccountShipContact().getAccount().getAccountId());
+            }
+            if(bill.getShipMethod()!=null){
             ba.setShipMethodName(bill.getShipMethod().getShipMethodName());
+            }
             ba.setShipPrice(bill.getShipPrice());
             List<BillDetailAnalysis> bdaList = new ArrayList<>();
             Double total = 0d;

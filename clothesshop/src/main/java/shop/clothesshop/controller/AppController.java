@@ -31,7 +31,6 @@ public class AppController {
         return appServices.getProductId(id);
     }
 
-
     @RequestMapping(method = RequestMethod.GET, value = "getproductbagbyaccountid")
     public List<ShowAccountBag> getBag(@RequestParam Integer accountId) {
         return appServices.getProductBagByAccountID(accountId);

@@ -25,4 +25,7 @@ public interface SalesRepo extends JpaRepository<Sales, Integer> {
 
     @Query(nativeQuery = true, value = "select * from sales join billsales on billsales.salesid = sales.salesid join bill on bill.billid = billsales.billid where billsales.billid = :idBill")
     public List<Sales> getSales(@Param("idBill") Integer idBill);
+
+    @Query(nativeQuery = true,value = "select salesint + salespercent from sales join billsales on  billsales.salesid = sales.salesid where billsales.billid = :idBill")
+    public Double getVoucherValue(@Param("idBill") Integer idBill);
 }

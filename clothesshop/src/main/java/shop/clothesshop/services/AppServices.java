@@ -40,7 +40,7 @@ public class AppServices implements IAppServices {
         productDetail.setCategoryType(p.getCategoryType());
         return productDetail;
     }
-
+//ORM
     @Override
     public List<ShowAccountBag> getProductBagByAccountID(int accountId) {
         List<ShowAccountBag> result = new ArrayList<>();
