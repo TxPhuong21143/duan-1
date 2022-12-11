@@ -329,12 +329,12 @@ public class AdminServices implements IAdminServices {
         }
         printBillData.setTotal(total);
         printBillData.setBillDetailPrints(billDetailPrints);
-        for (BillSales bs : bill.getBillSalesList()) {
-            if (bs.getSales().getSaleTypeId() == 1) {
-                printBillData.setFreeShip((double) bs.getSales().getSalesInt() + bs.getSales().getSalesPercent());
+        for (Sales s : dbContext.salesRepo.getSales(bill.getBillId())) {
+            if (s.getSaleTypeId() == 1) {
+                printBillData.setFreeShip((double) s.getSalesInt() + s.getSalesPercent());
             }
-            if (bs.getSales().getSaleTypeId() == 2) {
-                printBillData.setVoucher((double) bs.getSales().getSalesInt() + bs.getSales().getSalesPercent());
+            if (s.getSaleTypeId() == 2) {
+                printBillData.setVoucher((double) s.getSalesInt() + s.getSalesPercent());
             }
         }
         Double totalResult = total;

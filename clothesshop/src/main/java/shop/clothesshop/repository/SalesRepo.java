@@ -2,6 +2,7 @@ package shop.clothesshop.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import shop.clothesshop.entities.Sales;
 
@@ -21,4 +22,7 @@ public interface SalesRepo extends JpaRepository<Sales, Integer> {
 
     @Query(nativeQuery = true, value = "select * from sales where saletypeid =1")
     public List<Sales> getShipVoucher();
+
+    @Query(nativeQuery = true, value = "select * from sales join billsales on billsales.salesid = sales.salesid join bill on bill.billid = billsales.billid where billsales.billid = :idBill")
+    public List<Sales> getSales(@Param("idBill") Integer idBill);
 }
