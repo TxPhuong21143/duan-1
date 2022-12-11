@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+<<<<<<< HEAD
 import org.springframework.web.multipart.MultipartFile;
 import shop.clothesshop.entities.AccountShipContact;
 import shop.clothesshop.entities.Bill;
@@ -20,6 +21,16 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+=======
+import shop.clothesshop.entities.Product;
+import shop.clothesshop.entities.Sales;
+import shop.clothesshop.entities.adminrespon.AnalysisObject;
+import shop.clothesshop.entities.adminrespon.BillAnalysis;
+import shop.clothesshop.entities.adminrespon.SalesObject;
+import shop.clothesshop.services.AdminServices;
+
+import java.util.List;
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
 
 @RestController
 @RequestMapping(value = "api/product1.0")
@@ -27,6 +38,7 @@ import java.util.Set;
 public class AdminController {
     @Autowired
     private AdminServices adminServices;
+<<<<<<< HEAD
     @RequestMapping(method = RequestMethod.GET, value = "getanalysisshop")
     public AnalysisObject getAnalysisShop12Month() {
         return adminServices.analysisShop12Month();
@@ -50,6 +62,12 @@ public class AdminController {
         Gson gson = new Gson();
         CreateAndRemakePropertyData cpd = gson.fromJson(data, CreateAndRemakePropertyData.class);
         return adminServices.remakeProperty(cpd);
+=======
+
+    @RequestMapping(method = RequestMethod.GET, value = "searchtop5product", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Product> searchTop5(@RequestParam String search) {
+        return adminServices.searchInShop(search);
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getallbilltype")
@@ -62,11 +80,17 @@ public class AdminController {
         adminServices.adminSetBill(opt, idBill, idEmployee);
     }
 
+<<<<<<< HEAD
     @RequestMapping(method = RequestMethod.POST, value = "upload")
     public void upload(@RequestPart("file1") MultipartFile data1, @RequestPart("file2") MultipartFile data2, @RequestPart("data") String data) throws IOException {
         Gson gson = GsonMix.gsonLocalDate();
         CreateProductData cpd = gson.fromJson(data, CreateProductData.class);
         adminServices.addProduct(data1, data2, cpd);
+=======
+    @RequestMapping(method = RequestMethod.GET, value = "getanalysisshop")
+    public AnalysisObject getAnalysisShop12Month() {
+        return adminServices.analysisShop12Month();
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "sales", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -85,6 +109,7 @@ public class AdminController {
         adminServices.closeVoucher(idVoucher);
     }
 
+<<<<<<< HEAD
     @RequestMapping(method = RequestMethod.GET, value = "searchtop5product", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Product> searchTop5(@RequestParam String search) {
         return adminServices.searchInShop(search);
@@ -169,4 +194,6 @@ public class AdminController {
     public PrintBillData printBill(@RequestParam Integer idBill) {
         return adminServices.printBillData(idBill);
     }
+=======
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
 }

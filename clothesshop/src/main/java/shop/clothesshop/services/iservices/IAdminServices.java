@@ -53,4 +53,14 @@ public interface IAdminServices {
     public void payHoldBill(HoldBillRequestPayBill holdBillRequestPayBill);
 
     public PrintBillData printBillData(Integer idBill);
+    public AnalysisObject analysisShop12Month();
+    public void adminSetBill(int opt, int billId, int idEmployee);
+    public List<BillAnalysis> getAllBillByType(int type);
+    public List<Product> searchInShop(String search);
+
+    public SalesObject getAllSales();
+
+    public void createVoucher(Sales data);
+
+    public void closeVoucher(int idVoucher);
 }

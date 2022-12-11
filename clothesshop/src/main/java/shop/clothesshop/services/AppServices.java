@@ -12,7 +12,10 @@ import shop.clothesshop.repository.context.DBContext;
 import shop.clothesshop.services.iservices.IAppServices;
 
 import java.time.LocalDate;
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +24,7 @@ public class AppServices implements IAppServices {
     @Autowired
     private DBContext dbContext;
 
+<<<<<<< HEAD
     @Override
     public List<Product> getProductHome() {
         List<Product> fullList = dbContext.productRepo.findAll();
@@ -95,6 +99,8 @@ public class AppServices implements IAppServices {
         return listResult;
     }
 
+=======
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
     @Override
     public AccountCustom checkLogin(String userName, String userPass) {
         Accounts account = dbContext.accountRepo.checkLogin(userName, userPass);
@@ -109,6 +115,7 @@ public class AppServices implements IAppServices {
         result.setShipContacts(account.getAccountShipContacts());
         return result;
     }
+
 
     @Override
     public AccountCustom getAccountContacts(int accountBagId) {
@@ -125,6 +132,7 @@ public class AppServices implements IAppServices {
         result.setBorn(account.getAccountBorn());
         result.setShipContacts(dbContext.accountShipContactRepo.getAccountShipContactOn(account.getAccountId()));
         return result;
+<<<<<<< HEAD
     }
 
 
@@ -171,7 +179,10 @@ public class AppServices implements IAppServices {
         co.setBuyMethods(buyMethods);
         co.setShipMethods(shipMethods);
         return co;
+=======
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
     }
+
 
     @Override
     public CreateAccountData createAccountAndAccountShipContact(CreateAccountData accountData) {
@@ -193,6 +204,7 @@ public class AppServices implements IAppServices {
         accountData.setUserPass("");
         accountData.setId(account.getAccountId());
         return accountData;
+<<<<<<< HEAD
     }
 
     @Override
@@ -201,6 +213,8 @@ public class AppServices implements IAppServices {
         accountBag.setQuantity(accountBagData[1]);
         dbContext.accountBagRepo.save(accountBag);
         return accountBag;
+=======
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
     }
 
     @Override
@@ -208,6 +222,7 @@ public class AppServices implements IAppServices {
         accountShipContact.setAccountShipContactStatusId(1);
         dbContext.accountShipContactRepo.save(accountShipContact);
         return accountShipContact;
+<<<<<<< HEAD
     }
 
     @Override
@@ -306,6 +321,8 @@ public class AppServices implements IAppServices {
         accountShipContact.get().setAccountShipContactStatusId(2);
         dbContext.accountShipContactRepo.save(accountShipContact.get());
         return accountShipContact.get();
+=======
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
     }
 
     @Override
@@ -324,6 +341,7 @@ public class AppServices implements IAppServices {
         return accountRemake;
     }
 
+
     @Override
     public RePassRespon rePass(RePass rePassData) {
         RePassRespon rpr = new RePassRespon();
@@ -340,13 +358,17 @@ public class AppServices implements IAppServices {
             return rpr;
         }
         account.setAccountPassword(rePassData.getNewPass());
+<<<<<<< HEAD
         dbContext.accountRepo.save(account);
+=======
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
         rpr.setStatus(3);
         rpr.setDetail("Đổi mật khẩu thành công!");
         return rpr;
     }
 
     @Override
+<<<<<<< HEAD
     public List<Product> nextPage(int page) {
         List<Product> getAll = dbContext.productRepo.findAll();
         if(page*9+9>=getAll.size()){
@@ -378,4 +400,138 @@ public class AppServices implements IAppServices {
 
 
 
+=======
+
+    public OrderData createBill(OrderData orderData) {
+        Bill bill = new Bill();
+        bill.setBillStatusId(1);
+        bill.setShipMethodId(orderData.getShipOptId());
+        bill.setBuyMethodId(orderData.getBuyOptId());
+        bill.setCreateDate(LocalDate.now());
+        bill.setBuyerNotification(orderData.getBuyerNotification());
+        bill.setAccountShipContactId(orderData.getAccountShipContactId());
+        bill.setShipPrice(orderData.getShipPrice());
+        dbContext.billRepo.save(bill);
+        bill.setBillCode("HD" + bill.getBillId());
+        double totalBill = 0;
+        for (Integer accountBagId : orderData.getAccountBags()) {
+            AccountBag ab = dbContext.accountBagRepo.findById(accountBagId).get();
+            BillDetail bd = new BillDetail();
+            bd.setBillId(bill.getBillId());
+            bd.setProductId(ab.getProductId());
+            bd.setQuantity(ab.getQuantity());
+            bd.setPrice((double) ab.getProduct().getShellPrice());
+            totalBill += ab.getProduct().getShellPrice() * ab.getQuantity();
+            dbContext.billDetailRepo.save(bd);
+            dbContext.accountBagRepo.delete(ab);
+        }
+        if (orderData.getShipVoucher() != null) {
+            BillSales bs = new BillSales();
+            bs.setBillId(bill.getBillId());
+            bs.setSalesId(orderData.getShipVoucher());
+            dbContext.billSalesRepo.save(bs);
+        }
+        if (orderData.getVoucherVoucher() != null) {
+            BillSales bs = new BillSales();
+            bs.setBillId(bill.getBillId());
+            bs.setSalesId(orderData.getVoucherVoucher());
+            dbContext.billSalesRepo.save(bs);
+        }
+        bill.setTotalBill(totalBill);
+        dbContext.billRepo.save(bill);
+        return orderData;
+    }
+
+    @Override
+    public Bill cancelBill(Integer billId, Integer type) {
+        Optional<Bill> bill = dbContext.billRepo.findById(billId);
+        if (bill.isEmpty()) {
+            return null;
+        }
+        Bill getBill = bill.get();
+        LocalDate today = LocalDate.now();
+        switch (type) {
+            case 1:
+                getBill.setShipToBuyerDate(today.plusDays(5));
+                getBill.setBillStatusId(2);
+                for (BillDetail bd : getBill.getBillDetails()) {
+                    Product p = bd.getProduct();
+                    p.setQuantity(p.getQuantity() - bd.getQuantity());
+                    dbContext.productRepo.save(p);
+                }
+                dbContext.billRepo.save(getBill);
+                return getBill;
+            // case đã giao sẽ cần thông tin phía giao hàng
+            //case 2 là hủy đơn chờ
+            case 2:
+                getBill.setCloseDateTime(today);
+                getBill.setBillStatusId(4);
+                dbContext.billRepo.save(getBill);
+                for (BillDetail bd : getBill.getBillDetails()) {
+                    Product p = bd.getProduct();
+                    p.setQuantity(p.getQuantity() + bd.getQuantity());
+                    dbContext.productRepo.save(p);
+                }
+                return getBill;
+            case 3:
+                getBill.setCloseDateTime(today);
+                getBill.setBillStatusId(5);
+                dbContext.billRepo.save(getBill);
+                for (BillDetail bd : getBill.getBillDetails()) {
+                    Product p = bd.getProduct();
+                    p.setQuantity(p.getQuantity() + bd.getQuantity());
+                    dbContext.productRepo.save(p);
+                }
+                return getBill;
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    public AccountBag addProduct2Bag(int accountId, int productId, int quantity) {
+        AccountBag accountBag = new AccountBag();
+        accountBag.setAccount(dbContext.accountRepo.findById(accountId).get());
+        accountBag.setProduct(dbContext.productRepo.findById(productId).get());
+        accountBag.setQuantity(quantity);
+        dbContext.accountBagRepo.save(accountBag);
+        return accountBag;
+    }
+
+    @Override
+    public AccountBag deleteAccountBag(int accountBagId) {
+        Optional<AccountBag> accountBag = dbContext.accountBagRepo.findById(accountBagId);
+        if (accountBag.isEmpty()) {
+            return null;
+        }
+        dbContext.accountBagRepo.delete(accountBag.get());
+        return accountBag.get();
+    }
+
+    @Override
+    public CreateOrder createOrder(Integer[] listIdAccountBag) {
+        CreateOrder co = new CreateOrder();
+        List<OrderItem> orderItems = new ArrayList<>();
+        List<Sales> salesOfBill = dbContext.salesRepo.getAllOfBillWithoutOff();
+        List<ShipMethod> shipMethods = dbContext.shipMethodRepo.findAll();
+        List<BuyMethod> buyMethods = dbContext.buyMethodRepo.findAll();
+        List<AccountShipContact> accountShipContacts = dbContext.accountBagRepo.findById(listIdAccountBag[0]).get().getAccount().getAccountShipContacts();
+        for (Integer i : listIdAccountBag) {
+            OrderItem oi = new OrderItem();
+            AccountBag ab = dbContext.accountBagRepo.findById(i).get();
+            oi.setAccountBagId(i);
+            oi.setProduct(ab.getProduct());
+            oi.setQuantity(ab.getQuantity());
+            oi.setCategoryType(ab.getProduct().getCategoryType());
+            orderItems.add(oi);
+        }
+        co.setAccountShipContacts(accountShipContacts);
+        co.setOrderItems(orderItems);
+        co.setSalesOfBill(salesOfBill);
+        co.setBuyMethods(buyMethods);
+        co.setShipMethods(shipMethods);
+        return co;
+    }
+
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
 }
