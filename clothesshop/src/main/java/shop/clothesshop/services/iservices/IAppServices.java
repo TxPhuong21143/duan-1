@@ -27,4 +27,5 @@ public interface IAppServices {
 
     public AccountBag deleteAccountBag(int accountBagId);
 
+    public CreateOrder createOrder(Integer[] listIdAccountBag);
 }
