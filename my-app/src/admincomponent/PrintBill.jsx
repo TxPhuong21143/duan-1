@@ -6,6 +6,8 @@ import '../css/PrintBill.css'
 function PrintBill() {
     const [bill, setBill] = useState(undefined)
     const billId = JSON.parse(localStorage.getItem('printId'))
+    const value = JSON.parse(localStorage.getItem('valueSixdo'))
+    const valueTitle = localStorage.getItem('valueSixdoTitle')
     useEffect(() => {
         const getData = async () => {
             const data = await adminApi.printBill(billId)
@@ -13,23 +15,31 @@ function PrintBill() {
         }
         getData()
     }, [])
+    let totalResu
     if (bill) {
-        console.log(bill)
+        totalResu = bill.totalResult
+    }
+    if (bill) {
+        if (value < 100) {
+            totalResu -= bill.totalResult * value / 100
+        } else {
+            totalResu -= value
+        }
     }
     return (
         <>
             <div className="print-title">SIXDO - SHOP</div>
             <div className='bill-code'>{bill ? bill.billCode : ""}</div>
             <div className='fix-margintop'></div>
-             <div className='gust-print'>Khách mua ngoài</div>
-             <CustomerDetail />
+            <div className='gust-print'>Khách mua ngoài</div>
+            <CustomerDetail />
             <div className='employee-did'>
                 <div className='title-print-cus1'>Nhân viên thực hiện:</div>
-                <div className='detail-print-cus1'>{bill?bill.employeeName:""}</div>
+                <div className='detail-print-cus1'>{bill ? bill.employeeName : ""}</div>
             </div>
             <div className='employee-did'>
                 <div className='title-print-cus1'>Ngày thanh toán:</div>
-                <div className='detail-print-cus1'>{bill?bill.closeDate:""}</div>
+                <div className='detail-print-cus1'>{bill ? bill.closeDate : ""}</div>
             </div>
             <div className='fix-margintop'></div>
             <div className='header-print-row'>
@@ -56,12 +66,12 @@ function PrintBill() {
                         <div className='row-analysis-detail2'>{bill ? calcul(bill.total) + 'đ' : ""}</div>
                         <div className='row-analysis-detail2'>{bill ? calcul(bill.shipPrice) + 'đ' : ""}</div>
                         <div className='row-analysis-detail2'>{bill ? calcul(bill.freeShip) + 'đ' : ""}</div>
-                        <div className='row-analysis-detail2'>{bill ? calcul(bill.voucher) + 'đ' : ""}</div>
-                        <div className='row-analysis-detail2'>{bill ? calcul(bill.totalResult) + 'đ' : ""}</div>
+                        <div className='row-analysis-detail2'>{bill ? valueTitle : ""}</div>
+                        <div className='row-analysis-detail2'>{bill ? calcul(totalResu) + 'đ' : ""}</div>
                     </div>
                 </div>
             </div>
-           
+
         </>
     )
 }

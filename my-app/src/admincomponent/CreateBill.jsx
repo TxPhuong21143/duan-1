@@ -67,6 +67,11 @@ function CreateBill({ setBodyOpt, billIdUpdate = null }) {
             customerSdt: customSdt.current.value,
             customAddress: customAddress.current.value
         }
+        const valueVoucher = bill.sales.find((item)=>{
+            return item.salesId == voucher.current.value
+        })
+        localStorage.setItem('valueSixdo',valueVoucher.salesInt+valueVoucher.salesPercent)
+        localStorage.setItem('valueSixdoTitle',valueVoucher.salesCode)
         await adminApi.payHoldBill(data)
         alert("thành công")
     }

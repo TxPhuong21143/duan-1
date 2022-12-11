@@ -472,7 +472,7 @@ function OptionShip({ setShowShipName, setShowShip, calculResult, chooseShipOpt 
                             }} className='ship-create-order'>
                                 <div className='ship-create-order-content'>
                                     <span className='ship-opt-name'>{calculResult ? shipMethods[1].shipMethodName : ""}</span>
-                                    <span className='ship-opt-receive-date'>Dự kiến nhận hàng trong ngày hoặc từ 1-2 ngày chỉ áp dụng với TP Hà Nội.</span>
+                                    <span className='ship-opt-receive-date'>Dự kiến nhận hàng trong ngày hoặc từ 1-2 ngày chỉ áp dụng với nội thành Hà Nội.</span>
                                     <span className='ship-opt-price'>{calculResult ? calcul(shipMethods[1].price) + 'đ' : ""}</span>
                                 </div>
                             </div>
