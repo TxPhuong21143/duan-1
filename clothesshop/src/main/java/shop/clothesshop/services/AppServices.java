@@ -2,10 +2,7 @@ package shop.clothesshop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import shop.clothesshop.entities.AccountShipContact;
-import shop.clothesshop.entities.AccountStatus;
-import shop.clothesshop.entities.Accounts;
-import shop.clothesshop.entities.Role;
+import shop.clothesshop.entities.*;
 import shop.clothesshop.entities.requestobject.CreateAccountData;
 import shop.clothesshop.entities.requestobject.RePass;
 import shop.clothesshop.entities.requestobject.RemakeAccountRequest;
@@ -15,6 +12,7 @@ import shop.clothesshop.repository.context.DBContext;
 import shop.clothesshop.services.iservices.IAppServices;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -124,6 +122,7 @@ public class AppServices implements IAppServices {
     }
 
     @Override
+
     public OrderData createBill(OrderData orderData) {
         Bill bill = new Bill();
         bill.setBillStatusId(1);
@@ -229,5 +228,4 @@ public class AppServices implements IAppServices {
         dbContext.accountBagRepo.delete(accountBag.get());
         return accountBag.get();
     }
-
 }
