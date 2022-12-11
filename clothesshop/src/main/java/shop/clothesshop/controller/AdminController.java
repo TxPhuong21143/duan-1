@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping(value = "api/product1.0")
+@RequestMapping(value = "api/admin1.0")
 @CrossOrigin(allowedHeaders = "*", origins = "*")
 public class AdminController {
     @Autowired
