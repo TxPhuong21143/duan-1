@@ -25,4 +25,9 @@ public interface IAppServices {
     public RePassRespon rePass(RePass rePassData);
     public Bill cancelBill(Integer billId, Integer type);
     public OrderData createBill(OrderData orderData);
+
+    public AccountBag addProduct2Bag(int accountId, int productId, int quantity);
+
+    public AccountBag deleteAccountBag(int accountBagId);
+  
 }
