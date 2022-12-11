@@ -5,6 +5,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+<<<<<<< HEAD
+import shop.clothesshop.entities.AccountBag;
+import shop.clothesshop.entities.AccountShipContact;
+import shop.clothesshop.entities.Bill;
+import shop.clothesshop.entities.Product;
+import shop.clothesshop.entities.requestobject.CreateAccountData;
+import shop.clothesshop.entities.requestobject.OrderData;
+import shop.clothesshop.entities.requestobject.RePass;
+import shop.clothesshop.entities.requestobject.RemakeAccountRequest;
+import shop.clothesshop.entities.responobject.*;
+=======
 import shop.clothesshop.entities.AccountShipContact;
 import shop.clothesshop.entities.Product;
 import shop.clothesshop.entities.requestobject.CreateAccountData;
@@ -12,6 +23,7 @@ import shop.clothesshop.entities.requestobject.RePass;
 import shop.clothesshop.entities.requestobject.RemakeAccountRequest;
 import shop.clothesshop.entities.responobject.AccountCustom;
 import shop.clothesshop.entities.responobject.RePassRespon;
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
 import shop.clothesshop.lib.GsonMix;
 import shop.clothesshop.services.AppServices;
 
@@ -20,6 +32,27 @@ import java.util.List;
 public class AppController {
     @Autowired
     private AppServices appServices;
+
+    @RequestMapping(method = RequestMethod.GET, value = "getproducthome")
+    public List<Product> getProductHome() {
+        return appServices.getProductHome();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "getproductid")
+    public ProductDetail getProductById(@RequestParam Integer id) {
+        return appServices.getProductId(id);
+    }
+
+
+    @RequestMapping(method = RequestMethod.GET, value = "getproductbagbyaccountid")
+    public List<ShowAccountBag> getBag(@RequestParam Integer accountId) {
+        return appServices.getProductBagByAccountID(accountId);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "getbilldetailbyaccountid")
+    public List<OrderObject> getBillDetail(@RequestParam Integer accountId) {
+        return appServices.getOrderObjectByAccountId(accountId);
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "checklogin")
     public AccountCustom checkLogin(@RequestParam String userName, String userPass) {
@@ -31,20 +64,68 @@ public class AppController {
         return appServices.getAccountContacts(accountId);
     }
 
+<<<<<<< HEAD
+    @RequestMapping(method = RequestMethod.POST, value = "addproduct2bag")
+    public AccountBag addProduct2Bag(@RequestParam int accountId, int productId, int quantity) {
+        return appServices.addProduct2Bag(accountId, productId, quantity);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "deleteaccountbag")
+    public AccountBag deleteAccountBag(@RequestParam int accountBagId) {
+        return appServices.deleteAccountBag(accountBagId);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "getcalculbag")
+    public CreateOrder createBillFromBag(@RequestBody Integer[] listIdAccountBag) {
+        return appServices.createOrder(listIdAccountBag);
+    }
+
+=======
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
     @RequestMapping(method = RequestMethod.POST, value = "createaccount")
     public CreateAccountData createAccount(@RequestBody String accountData) {
         CreateAccountData account = GsonMix.gsonLocalDate().fromJson(accountData, CreateAccountData.class);
         return appServices.createAccountAndAccountShipContact(account);
     }
 
+<<<<<<< HEAD
+    @RequestMapping(method = RequestMethod.PUT, value = "updateaccountbagbyid")
+    public AccountBag updateAccountBagById(@RequestBody Integer[] accountBagData) {
+        return appServices.updateAccountBag(accountBagData);
+    }
+
+=======
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
     @RequestMapping(method = RequestMethod.POST, value = "addnewaccountshipcontact")
     public AccountShipContact addNewAccountShipContact(@RequestBody String accountShipContactData) {
         AccountShipContact accountShipContact = GsonMix.gsonLocalDate().fromJson(accountShipContactData, AccountShipContact.class);
         return appServices.addNewAccountShipContact(accountShipContact);
     }
 
+<<<<<<< HEAD
+
+    @RequestMapping(method = RequestMethod.POST, value = "createbill")
+    public OrderData createBill(@RequestBody String orderData) {
+        OrderData createOrderData = GsonMix.gsonLocalDate().fromJson(orderData, OrderData.class);
+        return appServices.createBill(createOrderData);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "cancelbill")
+    public Bill cancelBill(@RequestParam Integer billId, Integer type) {
+        return appServices.cancelBill(billId, type);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "deleteshipcontact")
+    public AccountShipContact removeAccountShipContact(@RequestParam Integer idAccountShipContact) {
+        return appServices.removeAccountShipContact(idAccountShipContact);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "remakeaccount")
+    public RemakeAccountRequest remakeAccount(@RequestBody String remakeData) {
+=======
     @RequestMapping(method = RequestMethod.PUT, value = "remakeaccount")
     public RemakeAccountRequest removeAccountShipContact(@RequestBody String remakeData) {
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
         RemakeAccountRequest data = GsonMix.gsonLocalDate().fromJson(remakeData, RemakeAccountRequest.class);
         return appServices.remakeAcountInfo(data);
     }
@@ -54,6 +135,10 @@ public class AppController {
         RePass data = GsonMix.gsonLocalDate().fromJson(remakeData, RePass.class);
         return appServices.rePass(data);
     }
+<<<<<<< HEAD
+
+=======
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
     @RequestMapping(method = RequestMethod.GET, value = "nextpage")
     public List<Product> nextPage(@RequestParam int page) {
         return appServices.nextPage(page);
@@ -78,4 +163,8 @@ public class AppController {
     public List<Product> searchProduct(@RequestParam String search) {
         return appServices.searchProduct(search);
     }
+<<<<<<< HEAD
+
+=======
+>>>>>>> e8d130ecde5ee4188ea48e46bd4c06dc457c3dce
 }
