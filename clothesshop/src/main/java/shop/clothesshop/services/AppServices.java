@@ -122,36 +122,110 @@ public class AppServices implements IAppServices {
     }
 
     @Override
-    public List<Product> getProductHome() {
-        List<Product> fullList = dbContext.productRepo.findAll();
-        return fullList.subList(0,9);
-    }
-    @Override
-    public List<Product> nextPage(int page) {
-        List<Product> getAll = dbContext.productRepo.findAll();
-        if(page*9+9>=getAll.size()){
-            return getAll.subList(getAll.size()-10,getAll.size()-1);
+
+    public OrderData createBill(OrderData orderData) {
+        Bill bill = new Bill();
+        bill.setBillStatusId(1);
+        bill.setShipMethodId(orderData.getShipOptId());
+        bill.setBuyMethodId(orderData.getBuyOptId());
+        bill.setCreateDate(LocalDate.now());
+        bill.setBuyerNotification(orderData.getBuyerNotification());
+        bill.setAccountShipContactId(orderData.getAccountShipContactId());
+        bill.setShipPrice(orderData.getShipPrice());
+        dbContext.billRepo.save(bill);
+        bill.setBillCode("HD" + bill.getBillId());
+        double totalBill = 0;
+        for (Integer accountBagId : orderData.getAccountBags()) {
+            AccountBag ab = dbContext.accountBagRepo.findById(accountBagId).get();
+            BillDetail bd = new BillDetail();
+            bd.setBillId(bill.getBillId());
+            bd.setProductId(ab.getProductId());
+            bd.setQuantity(ab.getQuantity());
+            bd.setPrice((double) ab.getProduct().getShellPrice());
+            totalBill += ab.getProduct().getShellPrice() * ab.getQuantity();
+            dbContext.billDetailRepo.save(bd);
+            dbContext.accountBagRepo.delete(ab);
         }
-        return getAll.subList(page*9-9,page*9);
+        if (orderData.getShipVoucher() != null) {
+            BillSales bs = new BillSales();
+            bs.setBillId(bill.getBillId());
+            bs.setSalesId(orderData.getShipVoucher());
+            dbContext.billSalesRepo.save(bs);
+        }
+        if (orderData.getVoucherVoucher() != null) {
+            BillSales bs = new BillSales();
+            bs.setBillId(bill.getBillId());
+            bs.setSalesId(orderData.getVoucherVoucher());
+            dbContext.billSalesRepo.save(bs);
+        }
+        bill.setTotalBill(totalBill);
+        dbContext.billRepo.save(bill);
+        return orderData;
     }
 
     @Override
-    public List<Product> dressCategory() {
-        return dbContext.productRepo.dressCategory();
+    public Bill cancelBill(Integer billId, Integer type) {
+        Optional<Bill> bill = dbContext.billRepo.findById(billId);
+        if (bill.isEmpty()) {
+            return null;
+        }
+        Bill getBill = bill.get();
+        LocalDate today = LocalDate.now();
+        switch (type) {
+            case 1:
+                getBill.setShipToBuyerDate(today.plusDays(5));
+                getBill.setBillStatusId(2);
+                for (BillDetail bd : getBill.getBillDetails()) {
+                    Product p = bd.getProduct();
+                    p.setQuantity(p.getQuantity() - bd.getQuantity());
+                    dbContext.productRepo.save(p);
+                }
+                dbContext.billRepo.save(getBill);
+                return getBill;
+            // case đã giao sẽ cần thông tin phía giao hàng
+            //case 2 là hủy đơn chờ
+            case 2:
+                getBill.setCloseDateTime(today);
+                getBill.setBillStatusId(4);
+                dbContext.billRepo.save(getBill);
+                for (BillDetail bd : getBill.getBillDetails()) {
+                    Product p = bd.getProduct();
+                    p.setQuantity(p.getQuantity() + bd.getQuantity());
+                    dbContext.productRepo.save(p);
+                }
+                return getBill;
+            case 3:
+                getBill.setCloseDateTime(today);
+                getBill.setBillStatusId(5);
+                dbContext.billRepo.save(getBill);
+                for (BillDetail bd : getBill.getBillDetails()) {
+                    Product p = bd.getProduct();
+                    p.setQuantity(p.getQuantity() + bd.getQuantity());
+                    dbContext.productRepo.save(p);
+                }
+                return getBill;
+            default:
+                return null;
+        }
     }
 
     @Override
-    public List<Product> panCategory() {
-        return dbContext.productRepo.panCategory();
+    public AccountBag addProduct2Bag(int accountId, int productId, int quantity) {
+        AccountBag accountBag = new AccountBag();
+        accountBag.setAccount(dbContext.accountRepo.findById(accountId).get());
+        accountBag.setProduct(dbContext.productRepo.findById(productId).get());
+        accountBag.setQuantity(quantity);
+        dbContext.accountBagRepo.save(accountBag);
+        return accountBag;
     }
 
     @Override
-    public List<Product> shirtCategory() {
-        return dbContext.productRepo.shirtCategory();
-    }
-
-    @Override
-    public List<Product> searchProduct(String searchInput) {
-        return dbContext.productRepo.searchProduct(searchInput);
+    public AccountBag deleteAccountBag(int accountBagId) {
+        Optional<AccountBag> accountBag = dbContext.accountBagRepo.findById(accountBagId);
+        if (accountBag.isEmpty()) {
+            return null;
+        }
+        dbContext.accountBagRepo.delete(accountBag.get());
+        return accountBag.get();
     }
 }
