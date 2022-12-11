@@ -296,7 +296,19 @@ function ConfirmContainer({ priceAfterShip }) {
         return true
     }
     const freeShipVoucher = JSON.parse(localStorage.getItem('freeshipvoucher'))
+    let free = 0
+    if (freeShipVoucher > 0 && freeShipVoucher < 100) {
+        free = priceAfterShip * freeShipVoucher / 100
+    } else {
+        free = freeShipVoucher
+    }
     const sixdoVoucher = JSON.parse(localStorage.getItem('sixdovoucher'))
+    let sixdo = 0
+    if (sixdoVoucher > 0 && sixdoVoucher < 100) {
+        sixdo = priceAfterShip * sixdoVoucher / 100
+    } else {
+        sixdo = sixdoVoucher
+    }
     async function createOrder() {
         if (!checkNull()) {
             return
@@ -338,7 +350,7 @@ function ConfirmContainer({ priceAfterShip }) {
                     <div className='show-opt-confirm'><span>Phí vận chuyển: </span>
                         <span className='fix-confirm-price'>{(ghn ? calcul(ghn) : "0") + "đ"}</span></div>
                     <div className='show-opt-confirm'><span>Tổng thanh toán: </span>
-                        <span className='price-result-createorder fix-confirm-priceresult'>{calcul(priceAfterShip + ghn - freeShipVoucher - sixdoVoucher) + "đ"}</span></div>
+                        <span className='price-result-createorder fix-confirm-priceresult'>{calcul(priceAfterShip + ghn - free - sixdo) + "đ"}</span></div>
                 </div>
                 <div className='create-order-btn'>
                     <div className='create-order-btn-div' onClick={() => {

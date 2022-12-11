@@ -184,7 +184,7 @@ const analysis = {
         return (
             <>
                 <div className='analysis-top-product-item-row'>
-                    <div className='colum-code xy-center'>{item.idProduct}</div>
+                    <div className='colum-code xy-center'>{item.productCode}</div>
                     <div className='colum-name xy-center'>{item.name}</div>
                     <div className='colum-count xy-center'>{item.sold}</div>
                     <div className='colum-inventory xy-center'>{item.inventory}</div>
@@ -196,7 +196,7 @@ const analysis = {
         return (
             <>
                 <div className='analysis-top-product-item-row'>
-                    <div className='colum-code xy-center'>{item.idAccount}</div>
+                    <div className='colum-code xy-center'>{item.accountCode}</div>
                     <div className='colum-name-kh xy-center'>{item.name}</div>
                     <div className='colum-sdt xy-center'>{item.sdt}</div>
                     <div className='colum-totalbill xy-center'>{item.totalPaid}</div>

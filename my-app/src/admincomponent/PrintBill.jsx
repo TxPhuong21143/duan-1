@@ -21,7 +21,8 @@ function PrintBill() {
             <div className="print-title">SIXDO - SHOP</div>
             <div className='bill-code'>{bill ? bill.billCode : ""}</div>
             <div className='fix-margintop'></div>
-            {bill ? bill.reveceiSdt ? <CustomerDetail name={bill.reveceiName} sdt={bill.reveceiSdt} address={bill.reveceiAddress} /> : <div className='gust-print'>Khách mua ngoài</div> : ""}
+             <div className='gust-print'>Khách mua ngoài</div>
+             <CustomerDetail />
             <div className='employee-did'>
                 <div className='title-print-cus1'>Nhân viên thực hiện:</div>
                 <div className='detail-print-cus1'>{bill?bill.employeeName:""}</div>
@@ -64,7 +65,10 @@ function PrintBill() {
         </>
     )
 }
-function CustomerDetail({ name, sdt, address }) {
+function CustomerDetail() {
+    const name = localStorage.getItem('customerName')
+    const sdt = localStorage.getItem('customerSdt')
+    const address = localStorage.getItem('customerAddress')
     return (
         <>
             <div className='customer-detail-print'>

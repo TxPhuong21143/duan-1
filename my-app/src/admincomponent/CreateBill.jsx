@@ -1,29 +1,29 @@
-import { useState, useEffect ,useRef, useLayoutEffect} from 'react'
+import { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import adminApi from '../api/AdminApi'
-import {useNavigate} from 'react-router'
+import { useNavigate } from 'react-router'
 import inShop from './InShop'
-function CreateBill({ setBodyOpt,billIdUpdate = null }) {
+function CreateBill({ setBodyOpt, billIdUpdate = null }) {
+    localStorage.removeItem('customerName')
+    localStorage.removeItem('customerSdt')
+    localStorage.removeItem('customerAddress')
     localStorage.setItem('totalsum', 0)
     const [bill, setBill] = useState(undefined)
-    const [billId , setBillId] = useState(0)
+    const [billId, setBillId] = useState(0)
     // const [bill, setBill] = useState(undefined)
     useLayoutEffect(() => {
-
         const getData = async () => {
             let data;
-            if(billIdUpdate){
+            if (billIdUpdate) {
                 data = await adminApi.getAllBillDetailOfBill(billIdUpdate)
                 setBillId(billIdUpdate)
                 setBill(data)
             }
-            else{
-               
+            else {
                 const dataId = await adminApi.createBillInShop(JSON.parse(localStorage.getItem('auth')).id)
                 data = await adminApi.getAllBillDetailOfBill(dataId.billId)
                 setBillId(dataId.billId)
                 setBill(data)
             }
-              
         }
         getData()
     }, [])
@@ -156,6 +156,9 @@ function CreateBill({ setBodyOpt,billIdUpdate = null }) {
                             else {
                                 payBill()
                                 localStorage.setItem('printId', billId)
+                                localStorage.setItem('customerName', customName.current.value.trim())
+                                localStorage.setItem('customerSdt', customSdt.current.value.trim())
+                                localStorage.setItem('customerAddress', customAddress.current.value.trim())
                                 navi("/printf")
                             }
                         }}>Thanh Toán</div>
