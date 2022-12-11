@@ -131,6 +131,14 @@ public class AppServices implements IAppServices {
 
     @Override
     public AccountBag addProduct2Bag(int accountId, int productId, int quantity) {
+        AccountBag accountBagCheck = dbContext.accountBagRepo.findByAccountIdAndProductId(accountId,productId);
+        if(accountBagCheck != null){
+            accountBagCheck.setQuantity(accountBagCheck.getQuantity()+quantity);
+            dbContext.accountBagRepo.save(accountBagCheck);
+            return accountBagCheck;
+        }
+
+        ///// sua doi
         AccountBag accountBag = new AccountBag();
         accountBag.setAccount(dbContext.accountRepo.findById(accountId).get());
         accountBag.setProduct(dbContext.productRepo.findById(productId).get());
