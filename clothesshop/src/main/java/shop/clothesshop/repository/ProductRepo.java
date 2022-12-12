@@ -22,13 +22,13 @@ public interface ProductRepo extends JpaRepository<Product, Integer> {
     @Query(nativeQuery = true, value = "select productid from billdetail join bill on billdetail.billid = bill.billid where MONTH(bill.createdate) = MONTH(CURDATE()) and bill.billstatusid = 3 group by productid order by SUM(quantity) DESC limit 5")
     public List<Integer> top5ProductSold();
 
-    @Query(nativeQuery = true, value = "select * from product where categorytypeid =1 limit 9")
+    @Query(nativeQuery = true, value = "select * from product where categorytypeid =1 limit 12")
     public List<Product> dressCategory();
 
-    @Query(nativeQuery = true, value = "select * from product where categorytypeid =2 limit 9")
+    @Query(nativeQuery = true, value = "select * from product where categorytypeid =2 limit 12")
     public List<Product> panCategory();
 
-    @Query(nativeQuery = true, value = "select * from product where categorytypeid =3 limit 9")
+    @Query(nativeQuery = true, value = "select * from product where categorytypeid =3 limit 12")
     public List<Product> shirtCategory();
 
     @Query(nativeQuery = true, value = "select * from product where productdetail like %:searchInput%")

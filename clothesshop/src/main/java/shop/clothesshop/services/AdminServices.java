@@ -359,7 +359,7 @@ public class AdminServices implements IAdminServices {
             printBillData.setTotalResult(totalResult + bill.getShipPrice());
         }
         printBillData.setBillCode(bill.getBillCode());
-        printBillData.setEmployeeName(bill.getEmployee().getName());
+     //   printBillData.setEmployeeName(bill.getEmployee().getName());
         printBillData.setCloseDate(bill.getCloseDateTime());
         return printBillData;
     }
